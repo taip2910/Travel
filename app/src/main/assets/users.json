@@ -1,0 +1,38 @@
+[
+  {
+    "firstName": "Ahmed",
+    "lastName": "Khan",
+    "email": "ahmedk@yahoo.com",
+    "password": "123",
+    "dob": "10/09/95",
+    "isAdmin": false,
+    "type": "New"
+  },
+  {
+    "firstName": "Azim",
+    "lastName": "Ali",
+    "email": "AzimA@yahoo.com",
+    "password": "123",
+    "dob": "10/10/95",
+    "isAdmin": false,
+    "type": "Silver"
+  },
+  {
+    "firstName": "Test",
+    "lastName": "User",
+    "email": "t",
+    "password": "t",
+    "dob": "10/09/95",
+    "isAdmin": true,
+    "type": "Silver"
+  },
+  {
+    "firstName": "User",
+    "lastName": "Test",
+    "email": "h",
+    "password": "h",
+    "dob": "10/09/95",
+    "isAdmin": false,
+    "type": "Gold"
+  }
+]

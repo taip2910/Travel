@@ -1,0 +1,18 @@
+[
+  {
+    "cid": 1,
+    "name": "Miền Bắc"
+  },
+  {
+    "cid": 2,
+    "name": "Miền Nam"
+  },
+  {
+    "cid": 3,
+    "name": "Miền Trung"
+  },
+  {
+    "cid": 4,
+    "name": "Miền Tây"
+  }
+]

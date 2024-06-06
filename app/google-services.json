@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "299728987067",
+    "firebase_url": "https://textpro-68591-default-rtdb.firebaseio.com",
+    "project_id": "textpro-68591",
+    "storage_bucket": "textpro-68591.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:299728987067:android:90e1c9cb5aa1dcc15fda9e",
+        "android_client_info": {
+          "package_name": "com.team4studio.travelnow"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmJCclWUNRU35yguO6b0kCFb2WVIBceqg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:299728987067:android:7d15bbd3bb43b0e95fda9e",
+        "android_client_info": {
+          "package_name": "com.team4studio.travelnow"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmJCclWUNRU35yguO6b0kCFb2WVIBceqg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
