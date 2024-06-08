@@ -1,9 +1,12 @@
 package com.team4studio.travelnow.viewmodel
 
 import android.app.Application
+import android.app.DatePickerDialog
+import android.content.Context
 import android.util.Log
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.core.util.toRange
 import androidx.lifecycle.AndroidViewModel
@@ -13,6 +16,11 @@ import com.team4studio.travelnow.model.remote.entity.Product
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
+import java.text.Normalizer
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Locale
+import java.util.regex.Pattern
 import kotlin.math.roundToInt
 
 class FilterViewModel(val context: Application) : AndroidViewModel(context) {
@@ -31,6 +39,17 @@ class FilterViewModel(val context: Application) : AndroidViewModel(context) {
     var reviewSlider by mutableStateOf(5f)
     var steps by mutableStateOf(0)
     var reviewRange by mutableStateOf(0f..5f)
+
+    var nameLocation by mutableStateOf("")
+
+    var showDateCheckIn by mutableStateOf(false)
+    var selectedDateCheckIn by mutableStateOf("")
+
+    var showDateCheckOut by mutableStateOf(false)
+    var selectedDateCheckOut by mutableStateOf("")
+
+    var numberOfGuests by mutableStateOf("")
+    var numberOfRooms by mutableStateOf("")
 
     fun setCurrentIndex(index: String) {
         currentCid.value = index
@@ -198,7 +217,9 @@ class FilterViewModel(val context: Application) : AndroidViewModel(context) {
                 }
             }
         }
-        return if (matchingProducts?.isEmpty() == false) getMatchingProductsByRating(matchingProducts!!) else emptyList()
+        return if (matchingProducts?.isEmpty() == false) getMatchingProductsByRating(
+            matchingProducts!!
+        ) else emptyList()
     }
 
     fun getSearchedProducts(
@@ -219,4 +240,36 @@ class FilterViewModel(val context: Application) : AndroidViewModel(context) {
         return if (filteredProducts?.isEmpty() != true) getMatchingProductsByRating(products!!) else null
         //return matchingProducts
     }
+
+
+    fun showDatePickerDialog(
+        context: Context,
+        showDialog: Boolean,
+        onDateSelected: (String) -> Unit
+    ) {
+        val format = SimpleDateFormat("EEEE, d MMMM yyyy", Locale("en", "VN"))
+
+        if (showDialog) {
+            val calendar = Calendar.getInstance()
+            DatePickerDialog(
+                context,
+                { _, year, month, dayOfMonth ->
+                    val selectedCalendar = Calendar.getInstance().apply {
+                        set(Calendar.YEAR, year)
+                        set(Calendar.MONTH, month)
+                        set(Calendar.DAY_OF_MONTH, dayOfMonth)
+                    }
+                    onDateSelected(format.format(selectedCalendar.time))
+                },
+                calendar.get(Calendar.YEAR),
+                calendar.get(Calendar.MONTH),
+                calendar.get(Calendar.DAY_OF_MONTH)
+            ).show()
+        }
+    }
+
+
+
 }
+
+

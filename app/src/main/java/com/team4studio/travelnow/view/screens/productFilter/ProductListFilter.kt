@@ -18,6 +18,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -54,6 +55,8 @@ fun ProductListFilter(
     isCategoryChip: Boolean,
     appViewModel: AppViewModel = viewModel(LocalContext.current as ComponentActivity)
 ) {
+
+
 
     Log.d("category id", category_id!!)
     val scope = rememberCoroutineScope()
@@ -105,34 +108,11 @@ fun ProductListFilter(
                     .fillMaxSize(),
                 verticalArrangement = Arrangement.spacedBy(10.dp),
             ) {
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    modifier = Modifier
-                        .height(70.dp)
-                        .fillMaxWidth()
-                ) {
-                    Text(
-                        text = "${result?.size}",
-                        textAlign = TextAlign.Left,
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 22.sp,
-                        softWrap = true,
-                        overflow = TextOverflow.Clip,
-                    )
-                    Text(
-                        text = " Search Results",
-                        textAlign = TextAlign.Left,
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 20.sp,
-                        softWrap = true,
-                        overflow = TextOverflow.Clip,
-                    )
-                }
-
-                //CategoryFilterComponent(categoryList = categoryList)
+                NameFilterComponent()
+                DateFilterComponent()
+                QuantityFilterComponent()
                 PriceFilterComponent(scope = scope, state = state)
                 ReviewFilterComponent()
-
             }
         }, bottomBar = {
             if (appViewModel.isAdmin) AdminBottomBar(navController = navController)
@@ -140,5 +120,3 @@ fun ProductListFilter(
         })
     }
 }
-
-
