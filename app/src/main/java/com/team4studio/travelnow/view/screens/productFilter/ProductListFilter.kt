@@ -84,7 +84,7 @@ fun ProductListFilter(
             TopBar("Filter $productType", { navController.popBackStack() }) {
                 TextButton(onClick = {
                     if (category_id == "-1" && categoryList.contains(Category(name = productType!!))) {
-                        navRoute = "ProductList/All products/All products/$category_id/1"
+                        navRoute = "ProductList$category_id/1"
                     }
                     navController.navigate(navRoute) {
                         popUpTo("home")

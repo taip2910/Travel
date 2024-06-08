@@ -37,10 +37,6 @@ fun NameFilterComponent(filterVM: FilterViewModel = viewModel(LocalContext.curre
 
     var locations = locations.locationNames
 
-    var category by remember {
-        mutableStateOf("")
-    }
-
     val heightTextFields by remember {
         mutableStateOf(55.dp)
     }
@@ -91,9 +87,9 @@ fun NameFilterComponent(filterVM: FilterViewModel = viewModel(LocalContext.curre
                         .onGloballyPositioned { coordinates ->
                             textFieldSize = coordinates.size.toSize()
                         },
-                    value = category,
+                    value = filterVM.nameLocation,
                     onValueChange = {
-                        category = it
+                        filterVM.nameLocation = it
                         expanded = true
                     },
                     colors = TextFieldDefaults.textFieldColors(
@@ -126,9 +122,9 @@ fun NameFilterComponent(filterVM: FilterViewModel = viewModel(LocalContext.curre
 
             AnimatedVisibility(visible = expanded) {
                 Card(
-//                    modifier = Modifier
-//                        .padding(horizontal = 5.dp)
-//                        .width(textFieldSize.width.dp),
+                    modifier = Modifier
+                        .padding(horizontal = 5.dp)
+                        .width(textFieldSize.width.dp),
                     elevation = 15.dp,
                     shape = RoundedCornerShape(10.dp)
                 ) {
@@ -137,17 +133,17 @@ fun NameFilterComponent(filterVM: FilterViewModel = viewModel(LocalContext.curre
                         modifier = Modifier.heightIn(max = 150.dp),
                     ) {
 
-                        if (category.isNotEmpty()) {
+                        if (filterVM.nameLocation.isNotEmpty()) {
                             items(
                                 locations.filter {
                                     it.lowercase()
-                                        .contains(category.lowercase()) || it.lowercase()
+                                        .contains(filterVM.nameLocation.lowercase()) || it.lowercase()
                                         .contains("others")
                                 }
                                     .sorted()
                             ) {
                                 CategoryItems(title = it) { title ->
-                                    category = title
+                                    filterVM.nameLocation = title
                                     expanded = false
                                 }
                             }
@@ -156,7 +152,7 @@ fun NameFilterComponent(filterVM: FilterViewModel = viewModel(LocalContext.curre
                                 locations.sorted()
                             ) {
                                 CategoryItems(title = it) { title ->
-                                    category = title
+                                    filterVM.nameLocation = title
                                     expanded = false
                                 }
                             }
