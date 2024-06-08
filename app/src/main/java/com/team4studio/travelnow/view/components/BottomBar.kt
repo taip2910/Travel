@@ -22,7 +22,7 @@ import com.team4studio.travelnow.view.navigation.Screen
 @Composable
 fun UserBottomBar(navController: NavHostController) {
     val screens = listOf(
-        Screen.Home, Screen.Search, Screen.Cart, Screen.Profile
+        Screen.Home, Screen.Cart, Screen.Profile
     )
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentDestination = navBackStackEntry?.destination

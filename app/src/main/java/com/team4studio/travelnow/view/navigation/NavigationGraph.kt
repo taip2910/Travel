@@ -19,7 +19,6 @@ import com.team4studio.travelnow.view.screens.admin.report.AdminReportFilter
 import com.team4studio.travelnow.view.screens.admin.report.AdminReportsInit
 import com.team4studio.travelnow.view.screens.cart.ShoppingCart
 import com.team4studio.travelnow.view.screens.home.Home
-import com.team4studio.travelnow.view.screens.home.Search
 import com.team4studio.travelnow.view.screens.login.Forgot
 import com.team4studio.travelnow.view.screens.login.Login
 import com.team4studio.travelnow.view.screens.login.ResetPassword
@@ -72,10 +71,6 @@ fun NavigationGraph(navController: NavHostController) {
         }
         composable(route = Screen.Home.route) {
             Home(navController)
-        }
-
-        composable(route = Screen.Search.route) {
-            Search(navController)
         }
 
         composable(route = Screen.Cart.route) {
