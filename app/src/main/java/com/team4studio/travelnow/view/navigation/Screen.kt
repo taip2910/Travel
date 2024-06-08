@@ -35,12 +35,6 @@ sealed class Screen(
         icon = Icons.Default.Home
     )
 
-        object Search : Screen(
-        route = "search",
-        title = "Search",
-        icon = Icons.Default.Home
-    )
-
     object Cart : Screen(
         route = "cart",
         title = "Cart",
