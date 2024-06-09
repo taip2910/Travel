@@ -200,15 +200,15 @@ fun ItemCard(
                             text = it.title,
                             fontWeight = FontWeight.Bold,
                             fontSize = 15.sp,
-                            maxLines = 2,
+                            maxLines = 1,
                             overflow = TextOverflow.Ellipsis
                         )
                     }
 
-                    item.orderItem?.let { Text(text = "Số Lượng:  ${it.quantity}") }
+                    item.orderItem?.let { Text(text = "Số Phòng:  ${it.quantity}") }
                     item.orderItem?.let { Text(text = "Giá:        $${item.orderItem.price}") }
 
-                    if (order.status.lowercase() == "Đã Xác Nhận" && order.uid == currentUserId) {
+                   if (order.status == "Đã Xác Nhận" && order.uid == currentUserId) {
                         Text(text = "Đánh giá sản phẩm",
                             fontWeight = FontWeight.Bold,
                             fontSize = 15.sp,
