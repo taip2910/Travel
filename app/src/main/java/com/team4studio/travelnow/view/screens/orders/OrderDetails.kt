@@ -208,8 +208,8 @@ fun ItemCard(
                     item.orderItem?.let { Text(text = "Số Lượng:  ${it.quantity}") }
                     item.orderItem?.let { Text(text = "Giá:        $${item.orderItem.price}") }
 
-                    if (order.status.lowercase() == "delivered" && order.uid == currentUserId) {
-                        Text(text = "REVIEW",
+                    if (order.status.lowercase() == "Đã Xác Nhận" && order.uid == currentUserId) {
+                        Text(text = "Đánh giá sản phẩm",
                             fontWeight = FontWeight.Bold,
                             fontSize = 15.sp,
                             modifier = Modifier.clickable {
