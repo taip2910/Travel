@@ -14,6 +14,7 @@ import androidx.compose.material3.TextButton
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -30,6 +31,7 @@ import com.team4studio.travelnow.view.components.TopBar
 import com.team4studio.travelnow.view.components.UserBottomBar
 import com.team4studio.travelnow.view.screens.product.productTypes
 import com.team4studio.travelnow.viewmodel.AppViewModel
+import com.team4studio.travelnow.viewmodel.FilterViewModel
 import com.team4studio.travelnow.viewmodel.HomeViewModel
 
 @Composable
@@ -57,7 +59,7 @@ fun ProductListFilter(
 ) {
 
 
-
+    var filterVM = viewModel<FilterViewModel>(LocalContext.current as ComponentActivity)
     Log.d("category id", category_id!!)
     val scope = rememberCoroutineScope()
     val skipHalfExpanded by remember { mutableStateOf(false) }
@@ -66,8 +68,11 @@ fun ProductListFilter(
     )
     Log.d("type", "$productType")
     Log.d("cid", category_id)
+//    var navRoute = remember {
+//        "ProductList/${productType}/$productType/$category_id/1"
+//    }
     var navRoute = remember {
-        "ProductList/${productType}/$productType/$category_id/1"
+        "ProductListSearch/a"
     }
 
     val result: List<Product>? = productTypes(type = productType, cid = category_id)
@@ -83,9 +88,10 @@ fun ProductListFilter(
         Scaffold(topBar = {
             TopBar("Filter $productType", { navController.popBackStack() }) {
                 TextButton(onClick = {
-                    if (category_id == "-1" && categoryList.contains(Category(name = productType!!))) {
-                        navRoute = "ProductList$category_id/1"
-                    }
+                   // if (category_id == "-1" && categoryList.contains(Category(name = productType!!))) {
+                        //
+                        navRoute = "ProductListSearch/${filterVM.nameLocation}"
+                    //}
                     navController.navigate(navRoute) {
                         popUpTo("home")
 
@@ -96,7 +102,8 @@ fun ProductListFilter(
                         text = "APPLY",
                         Modifier.padding(end = 5.dp),
                         fontWeight = FontWeight.Bold,
-                        fontSize = 15.sp
+                        fontSize = 15.sp,
+                        color = Color.Black
                     )
                 }
             }
@@ -109,8 +116,8 @@ fun ProductListFilter(
                 verticalArrangement = Arrangement.spacedBy(10.dp),
             ) {
                 NameFilterComponent()
-                DateFilterComponent()
-                QuantityFilterComponent()
+                //DateFilterComponent()
+                //QuantityFilterComponent()
                 PriceFilterComponent(scope = scope, state = state)
                 ReviewFilterComponent()
             }

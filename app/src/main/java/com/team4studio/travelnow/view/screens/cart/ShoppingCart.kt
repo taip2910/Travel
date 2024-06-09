@@ -74,7 +74,7 @@ fun ShoppingCart(
                         items(items = userCart, key = { userCart -> userCart.cart.id }) {
                             CartItemCard(
                                 it, viewModel
-                            ) { navController.navigate("Phòng/${it.product.id}") }
+                            ) { navController.navigate("product/${it.product.id}") }
                         }
                     }
 
@@ -122,7 +122,7 @@ fun ShoppingCart(
                             onClick = { navController.navigate(Screen.SelectAddress.route) },
                             Modifier.fillMaxWidth(),
                         ) {
-                            Text(text = "THANH TOÁN", fontSize = 18.sp)
+                            Text(text = "Thanh Toán", fontSize = 18.sp)
                         }
                     }
                 }

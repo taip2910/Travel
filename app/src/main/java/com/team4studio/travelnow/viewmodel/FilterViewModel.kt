@@ -106,7 +106,6 @@ class FilterViewModel(val context: Application) : AndroidViewModel(context) {
     fun getCategoryProducts(
     ): List<Product>? {
         var products: List<Product>? = emptyList<Product>()
-
         runBlocking {
             this.launch(Dispatchers.IO) {
                 products = productRepository.getCategoryProducts(
@@ -192,6 +191,20 @@ class FilterViewModel(val context: Application) : AndroidViewModel(context) {
 
         return if (products?.isEmpty() == false) getMatchingProductsByRating(products!!) else emptyList()
     }
+
+    fun filterProductsByNamePrice(): List<Product>? {
+        var products: List<Product>? = emptyList()
+        runBlocking {
+            this.launch(Dispatchers.IO) {
+                products = productRepository.getFilterNamePriceQuery(
+                    nameLocation,getStartPrice(), getEndPrice()
+                )
+            }
+        }
+
+        return if (products?.isEmpty() == false) getMatchingProductsByRating(products!!) else emptyList()
+    }
+
 
     fun getTrendingProducts(
         orderItems: List<OrderItem>

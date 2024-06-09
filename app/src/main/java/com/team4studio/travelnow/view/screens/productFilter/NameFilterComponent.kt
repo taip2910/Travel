@@ -66,7 +66,7 @@ fun NameFilterComponent(filterVM: FilterViewModel = viewModel(LocalContext.curre
 
         Text(
             modifier = Modifier.padding(start = 3.dp, bottom = 2.dp),
-            text = "Tinh/Thành Phố",
+            text = "Tinh/Thành Phố/Tên Địa Điểm",
             fontSize = 16.sp,
             color = Color.Black,
             fontWeight = FontWeight.Medium

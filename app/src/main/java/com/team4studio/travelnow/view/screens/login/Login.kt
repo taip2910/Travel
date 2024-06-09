@@ -23,6 +23,8 @@ import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
@@ -131,10 +133,15 @@ fun Login(
         Row(
             Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End
         ) {
-            Text("Quên Mật Khẩu?",
-                Modifier
+            Text(
+                text = "Quên Mật Khẩu?",
+                style = TextStyle(fontWeight = FontWeight.Medium),
+                fontSize = 18.sp,
+                modifier = Modifier
                     .padding(top = 10.toAdaptiveDp())
-                    .clickable() { onForgotClick() })
+                    .clickable() { onForgotClick() }
+
+            )
         }
         Button(
             onClick = { handleLogin() }, Modifier.padding(top = 20.toAdaptiveDp())
@@ -155,12 +162,13 @@ fun Login(
 
 
             Text(
-                text = "Đăng Ký",
+                text = "Chưa có tài khoản? Đăng Ký",
                 Modifier
                     .padding(top = 10.toAdaptiveDp(), bottom = 15.toAdaptiveDp())
                     .clickable() { onRegisterClick() },
-                fontSize = 16.sp
-            )
+                fontSize = 16.sp,
+                style = TextStyle(fontWeight = FontWeight.Bold),
+                )
 
 //            Text("OR SIGN UP USING")
 //            Row(

@@ -62,7 +62,7 @@ fun AdminReportCard(order: Order, allProducts: List<Product>) {
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Text(text = "Sản phẩm xSố lượng", style = smallCaption)
+                Text(text = "Sản phẩm x Số lượng", style = smallCaption)
                 Text(text = "Giá", style = smallCaption)
             }
             Spacer(modifier = Modifier.height(10.dp))
@@ -77,10 +77,7 @@ fun AdminReportCard(order: Order, allProducts: List<Product>) {
                     ).joinToString(separator = " ")
 
                 Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-//                    Text(
-//                        text = if (product.id.isNotEmpty()) product.id.substring(0, 3) else "",
-//                        style = smallTitle
-//                    )
+
                     Row() {
                         Text(text = str, style = smallTitle)
                         Text(
@@ -91,48 +88,5 @@ fun AdminReportCard(order: Order, allProducts: List<Product>) {
                 }
             }
         }
-
-
-//        Column(
-//            Modifier
-//                .padding(12.dp)
-//                .fillMaxWidth()
-//        ) {
-//            Text(
-//                text = "Product Name: YYYY",
-//                fontWeight = FontWeight.Bold,
-//                fontSize = 18.sp,
-//                //modifier = Modifier.padding(horizontal = 5.dp),
-//                softWrap = true,
-//                overflow = TextOverflow.Clip,
-//            )
-//            Text(
-//                text = "Price: 200$",
-//                //fontWeight = FontWeight.Bold,
-//                //modifier = Modifier.padding(horizontal = 5.dp),
-//                softWrap = true,
-//                overflow = TextOverflow.Clip,
-//            )
-//            Row(
-//                horizontalArrangement = Arrangement.SpaceBetween, modifier = Modifier.fillMaxWidth()
-//
-//            ) {
-//                Text(
-//                    text = "Ordered Date: 12/01/2002",
-//                    //fontWeight = FontWeight.Bold,
-//
-//                    softWrap = true,
-//                    overflow = TextOverflow.Clip,
-//                )
-//                Spacer(Modifier.width(10.dp))
-//                Text(
-//                    text = "Status: Progressing",
-//                    //fontWeight = FontWeight.Bold,
-//
-//                    softWrap = true,
-//                    overflow = TextOverflow.Clip,
-//                )
-//            }
-//        }
     }
 }

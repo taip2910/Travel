@@ -142,7 +142,8 @@ object ProductRepository {
     suspend fun getCategoryProducts(
         cid: String, startPrice: Float, endPrice: Float
     ): List<Product>? {
-        return productCollectionRef.whereEqualTo("cid", cid).whereGreaterThan("price", startPrice)
+        return productCollectionRef
+            .whereEqualTo("cid", cid).whereGreaterThan("price", startPrice)
             .whereLessThan("price", endPrice).get().await().toObjects(
                 Product::class.java
             )
@@ -151,9 +152,24 @@ object ProductRepository {
     suspend fun getNormalFilterQuery(
         startPrice: Float, endPrice: Float
     ): List<Product>? {
-        return productCollectionRef.whereGreaterThan("price", startPrice)
+        return productCollectionRef
+            .whereGreaterThan("price", startPrice)
             .whereLessThan("price", endPrice).get().await().toObjects(
                 Product::class.java
             )
     }
+
+    suspend fun getFilterNamePriceQuery(
+        name:String, startPrice: Float, endPrice: Float
+    ): List<Product>? {
+        return productCollectionRef
+            .orderBy("productName")
+            .startAt(name)
+            .endAt(name + "\uf8ff")
+            .whereGreaterThan("price", startPrice)
+            .whereLessThan("price", endPrice).get().await().toObjects(
+                Product::class.java
+            )
+    }
+
 }

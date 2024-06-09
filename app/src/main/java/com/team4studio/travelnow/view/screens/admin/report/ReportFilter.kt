@@ -11,6 +11,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.semantics.Role
@@ -59,7 +60,7 @@ fun AdminReportFilter(
                     navController.popBackStack()
                 }
             }) {
-                Text(text = "Áp dụng")
+                Text(text = "Áp dụng", color = Color.Black )
             }
         })
     }, content = { padding ->
@@ -95,7 +96,7 @@ fun AdminReportFilter(
                     dateDialog.show()
                 },
                 onValueChange = {},
-                label = { Text("ngày bắt đầu") },
+                label = { Text("Ngày bắt đầu") },
                 singleLine = true,
                 enabled = false,
             )
@@ -115,7 +116,7 @@ fun AdminReportFilter(
                     dateDialog2.show()
                 },
                 onValueChange = {},
-                label = { Text("ngày kết thúc") },
+                label = { Text("Ngày kết thúc") },
                 singleLine = true,
                 enabled = false,
             )

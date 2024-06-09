@@ -46,10 +46,10 @@ fun ProductHighlights(
         TextButton(onClick = {
             homeViewModel.setColor(highlight, Color.Black)
             navController.navigate("productList/${highlight}/${"Highlight"}/-1/0")
-            homeViewModel.actionType = "xem tất cả"
+            homeViewModel.actionType = "see all"
         }) {
             Text(
-                text = "xem tất cả",
+                text = "Tất cả",
                 fontWeight = FontWeight.Bold,
                 fontSize = 15.sp,
                 modifier = Modifier.padding(5.dp),
@@ -63,7 +63,8 @@ fun ProductHighlights(
         contentPadding = PaddingValues(all = 10.dp),
         horizontalArrangement = Arrangement.spacedBy(5.dp)
     ) {
-        items(homeViewModel.getProductsByHighlights5(highlight)) { product: Product ->
+        items(homeViewModel.getProductsByHighlights5(highlight)) {
+            product: Product ->
             ProductCard(
                 productVM.getProductAvgRating(product.reviews),
                 product,

@@ -85,15 +85,15 @@ class ReportVM(val context: Application) : AndroidViewModel(context) {
         }
 
         when (order.status.lowercase()) {
-            "processing" -> {
+            "Đang Xử Lý" -> {
                 totalProductsByStatus[0].count += order.items.size
                 totalProductsByStatus[0].amount += order.total
             }
-            "shipped" -> {
+            "Đang Xác Nhận" -> {
                 totalProductsByStatus[1].count += order.items.size
                 totalProductsByStatus[1].amount += order.total
             }
-            "delivered" -> {
+            "Đã Xác Nhận" -> {
                 totalProductsByStatus[2].count += order.items.size
                 totalProductsByStatus[2].amount += order.total
             }

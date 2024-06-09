@@ -43,8 +43,6 @@ val locations = LocationNames(
         "Lâm Đồng",
         "Lạng Sơn",
         "Lào Cai",
-        "Lê Quảng Bình",
-        "Lê Quảng Nam",
         "Lạng Sơn",
         "Nam Định",
         "Nghệ An",
@@ -68,6 +66,16 @@ val locations = LocationNames(
         "Tuyên Quang",
         "Vĩnh Long",
         "Vĩnh Phúc",
-        "Yên Bái"
+        "Yên Bái",
+        "Phú Quốc",
+        "Côn Đảo",
+        "Đảo Cát Bà",
+        "Đảo Cô Tô",
+        "Sài Gòn",
+        "Hạ Long",
+        "Hội An",
+        "Nha Trang",
+        "Phan Thiết",
+
     )
 )

@@ -77,12 +77,12 @@ fun Dashboard(
             ) {
                 StatsCard(Icons.Filled.ListAlt, "Tổng Số Đơn Đặt Khách Sạn", "$totalOrders") {
                     navController.navigate(
-                        "detailsPage/orders/Tổng đơn đặt khách sạn"
+                        "detailsPage/orders/total orders"
                     )
                 }
                 StatsCard(Icons.Filled.Payments, "Tổng Doanh Thu", "$${round(totalSales)}") {
                     navController.navigate(
-                        "detailsPage/sales/Tổng doanh thu"
+                        "detailsPage/sales/Total sales"
                     )
                 }
                 StatsCard(Icons.Filled.Store, "Tổng Số Khánh Sạn", "${products.size}") {
