@@ -20,7 +20,7 @@ class HomeViewModel(val context: Application) : AndroidViewModel(context) {
 
     private var filteredProductList = getProductList().toMutableStateList()
     var actionType by mutableStateOf("")
-    val highlightList = listOf("Trending", "New Arrivals", "Top Ranked")
+    val highlightList = listOf("Nổi Bật", "Mới", "Xếp Hạng Cạo")
     var trendingProducts = mutableListOf<Product>()
 
     private val initialColor = Color.Red
@@ -88,19 +88,19 @@ class HomeViewModel(val context: Application) : AndroidViewModel(context) {
 
     fun getProductsByHighlights(highlight: String): List<Product> {
         var products: List<Product> = emptyList()
-        if (highlight == "New Arrivals") {
+        if (highlight == "Mới") {
             runBlocking {
                 this.launch(Dispatchers.IO) {
                     products = productRepository.getNewArrivals()
                 }
             }
-        } else if (highlight == "Top Ranked") {
+        } else if (highlight == "Xếp Hạng Cao") {
             runBlocking {
                 this.launch(Dispatchers.IO) {
                     products = productRepository.getTopRanked()
                 }
             }
-        } else if (highlight == "Trending") {
+        } else if (highlight == "Nổi Bật") {
             runBlocking {
                 this.launch(Dispatchers.IO) {
                     products = productRepository.getTrending()

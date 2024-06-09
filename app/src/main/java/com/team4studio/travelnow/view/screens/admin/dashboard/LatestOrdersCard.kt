@@ -34,18 +34,18 @@ fun LatestOrderCard(navController: NavController, order: Order) {
         ) {
 
             Text(
-                text = "Order# ${order.id}", style = largeTitle
+                text = "Đơn# ${order.id}", style = largeTitle
             )
             Spacer(modifier = Modifier.height(4.dp))
-            Text(text = "Grand Total: ${order.total}$", style = smallTitle)
+            Text(text = "Tổng Cộng: ${order.total}$", style = smallTitle)
             Spacer(modifier = Modifier.height(4.dp))
             Row(
                 Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween
             ) {
 
-                Text(text = "Date: ${order.date}", style = smallTitle)
+                Text(text = "Ngày: ${order.date}", style = smallTitle)
                 Text(
-                    text = "Status: ${order.status}", textAlign = TextAlign.End, style = smallTitle
+                    text = "Trạng Thái: ${order.status}", textAlign = TextAlign.End, style = smallTitle
                 )
             }
         }

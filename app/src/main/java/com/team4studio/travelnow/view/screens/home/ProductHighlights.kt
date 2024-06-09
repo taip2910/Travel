@@ -46,10 +46,10 @@ fun ProductHighlights(
         TextButton(onClick = {
             homeViewModel.setColor(highlight, Color.Black)
             navController.navigate("productList/${highlight}/${"Highlight"}/-1/0")
-            homeViewModel.actionType = "see all"
+            homeViewModel.actionType = "xem tất cả"
         }) {
             Text(
-                text = "see all",
+                text = "xem tất cả",
                 fontWeight = FontWeight.Bold,
                 fontSize = 15.sp,
                 modifier = Modifier.padding(5.dp),

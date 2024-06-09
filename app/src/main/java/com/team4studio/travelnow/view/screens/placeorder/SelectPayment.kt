@@ -24,7 +24,7 @@ import com.team4studio.travelnow.viewmodel.PlaceOrderViewModel
 @ExperimentalMaterial3Api
 @Composable
 fun SelectPayment(navController: NavHostController) {
-    Scaffold(topBar = { TopBar("Select Payment", { navController.popBackStack() }) },
+    Scaffold(topBar = { TopBar("Chọn Phương Thức Thanh Toán", { navController.popBackStack() }) },
         content = { padding ->
             Column(
                 Modifier
@@ -35,7 +35,7 @@ fun SelectPayment(navController: NavHostController) {
                 val navToSummary = { navController.navigate(Screen.OrderSummary.route) }
 
                 PaymentOptionCard(
-                    optionText = "Cash on Delivery",
+                    optionText = "Tiền Mặt",
                     iconID = R.drawable.cash,
                     navToSummary = navToSummary
                 )

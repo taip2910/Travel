@@ -114,9 +114,9 @@ fun DetailsPage(
                                                         horizontalArrangement = Arrangement.SpaceBetween
                                                     ) {
                                                         Text(
-                                                            text = "Quantity", style = mediumTitle
+                                                            text = "Số Lương", style = mediumTitle
                                                         )
-                                                        Text(text = "Total", style = mediumTitle)
+                                                        Text(text = "Tổng", style = mediumTitle)
                                                     }
                                                 }
 
@@ -147,7 +147,7 @@ fun DetailsPage(
                                                     }
                                                 }
                                                 Spacer(modifier = Modifier.height(4.dp))
-                                                Text(text = "Name", style = mediumTitle)
+                                                Text(text = "Tên", style = mediumTitle)
                                                 Text(text = str, style = smallCaption)
                                             }
                                         }
@@ -170,11 +170,11 @@ fun DetailsPage(
                             }
                             for (order in orders) reportVM.totalSales += (order.total)
                             Text(
-                                text = "Total quantity ordered: ", style = mediumCaption
+                                text = "Tổng số lượng đặt phòng: ", style = mediumCaption
                             )
                             Text(text = reportVM.totalQuantity.toString(), style = mediumTitle)
                             Spacer(modifier = Modifier.height(12.dp))
-                            Text(text = "Total revenue:", style = mediumCaption)
+                            Text(text = "Tổng doanh thu:", style = mediumCaption)
                             Text(text = "$" + round(reportVM.totalSales), style = mediumTitle)
                         }
 

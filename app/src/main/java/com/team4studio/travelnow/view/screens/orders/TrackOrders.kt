@@ -45,7 +45,7 @@ fun TrackOrders(
     val orders = orderViewModel.orders
 
     Scaffold(topBar = {
-        TopBar(title = "Track Orders", { navController.popBackStack() })
+        TopBar(title = "Theo Dõi Vé", { navController.popBackStack() })
     }, content = { padding ->
         LazyColumn(
             Modifier
@@ -112,8 +112,8 @@ fun OrderCard(order: Order, navController: NavHostController) {
                     Row(
                         Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween
                     ) {
-                        Text(text = "Status:  ${order.status}", style = mediumCaption)
-                        Text(text = "Total: $${order.total}", style = mediumCaption)
+                        Text(text = "Trạng Thái:  ${order.status}", style = mediumCaption)
+                        Text(text = "Tổng: $${order.total}", style = mediumCaption)
                     }
                 }
             }
@@ -128,15 +128,15 @@ fun OrderCard(order: Order, navController: NavHostController) {
 @Composable
 fun StepBar(doneStatus: String) {
     val stepIsComplete: Int = when (doneStatus) {
-        "Processing" -> 1
-        "Shipped" -> 2
+        "Đang Xử lý" -> 1
+        "Đang Xác Nhận" -> 2
         else -> 3
     }
 
     Row(modifier = Modifier.fillMaxWidth(1f), horizontalArrangement = Arrangement.SpaceBetween) {
-        Step("Processing", 1, stepIsComplete)
-        Step("Shipped", 2, stepIsComplete)
-        Step("delivered", 3, stepIsComplete)
+        Step("Đang Xử Lý", 1, stepIsComplete)
+        Step("Đang Xác Nhận", 2, stepIsComplete)
+        Step("Đã Xác Nhận", 3, stepIsComplete)
     }
 }
 
@@ -152,8 +152,8 @@ fun Step(status: String, stepNumber: Int, state: Int) {
     }
 
     val icon: ImageVector = when (status.lowercase()) {
-        "processing" -> StatusIcons.PROCESSING
-        "shipped" -> StatusIcons.SHIPPED
+        "Đang Xử lý" -> StatusIcons.PROCESSING
+        "Đang Xác Nhận" -> StatusIcons.SHIPPED
         else -> StatusIcons.DELIVERED
     }
 

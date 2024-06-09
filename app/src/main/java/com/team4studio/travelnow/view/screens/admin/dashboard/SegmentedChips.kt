@@ -22,7 +22,7 @@ fun SegmentedButton() {
 
         FilterChip(selected = true,
             onClick = { if(adminDashboardVM.selectedSortChip != 1) adminDashboardVM.selectedSortChip = 1 else adminDashboardVM.selectedSortChip = 0  },
-            label = { Text("Status A-Z") },
+            label = { Text("Từ A-Z") },
             leadingIcon = if (adminDashboardVM.selectedSortChip == 1) {
                 {
                     Icon(
@@ -43,7 +43,7 @@ fun SegmentedButton() {
         Spacer(modifier = Modifier.width(10.dp))
         FilterChip(selected = true,
             onClick = { if(adminDashboardVM.selectedSortChip != 2) adminDashboardVM.selectedSortChip = 2 else adminDashboardVM.selectedSortChip = 0  },
-            label = { Text("Date") },
+            label = { Text("Ngày") },
             leadingIcon = if (adminDashboardVM.selectedSortChip == 2) {
                 {
                     Icon(
@@ -64,7 +64,7 @@ fun SegmentedButton() {
         Spacer(modifier = Modifier.width(10.dp))
         FilterChip(selected = true,
             onClick = { if(adminDashboardVM.selectedSortChip != 3) adminDashboardVM.selectedSortChip = 3 else adminDashboardVM.selectedSortChip = 0  },
-            label = { Text("Total") },
+            label = { Text("Tổng") },
             leadingIcon = if (adminDashboardVM.selectedSortChip == 3) {
                 {
                     Icon(

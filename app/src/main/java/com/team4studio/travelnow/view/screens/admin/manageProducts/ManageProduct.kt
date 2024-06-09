@@ -56,20 +56,20 @@ fun ManageProduct(
     viewModel: ManageProductVM = viewModel(LocalContext.current as ComponentActivity),
     productVM: ProductViewModel = viewModel(LocalContext.current as ComponentActivity)
 ) {
-    var btnText = "Save"
+    var btnText = "Lưu"
     val context = LocalContext.current
     val keyboardController = LocalSoftwareKeyboardController.current
     val focusManager = LocalFocusManager.current
 
     fun validateInputs(): Boolean {
-        if (actionType == "Add") if (viewModel.cid.isBlank() || viewModel.cid == "-1") {
-            Toast.makeText(context, "Invalid Input", Toast.LENGTH_SHORT).show()
+        if (actionType == "Thêm") if (viewModel.cid.isBlank() || viewModel.cid == "-1") {
+            Toast.makeText(context, "Không Hợp Lệ", Toast.LENGTH_SHORT).show()
             return true
         }
 
 
         if (viewModel.stock.isBlank() || viewModel.price.isBlank() || viewModel.description.isBlank() || viewModel.title.isBlank()) {
-            Toast.makeText(context, "Invalid Inputs", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "Không Hợp Lệ", Toast.LENGTH_SHORT).show()
             return true
         }
 
@@ -82,7 +82,7 @@ fun ManageProduct(
         keyboardController?.hide()
         focusManager.clearFocus()
     },
-        topBar = { TopBar("$actionType Product", { navController.popBackStack(); }) },
+        topBar = { TopBar("$actionType Khách Sạn", { navController.popBackStack(); }) },
         content = { padding ->
             Column(
                 Modifier
@@ -104,7 +104,7 @@ fun ManageProduct(
                         onValueChange = {
                             viewModel.title = it
                         },
-                        label = { Text("Product Title") },
+                        label = { Text("Tên Khách Sạn") },
                         singleLine = true,
                         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text)
                     )
@@ -114,7 +114,7 @@ fun ManageProduct(
                         onValueChange = {
                             viewModel.price = it
                         },
-                        label = { Text("Product Price") },
+                        label = { Text("Giá Khách Sạn") },
                         singleLine = true,
                         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                         modifier = Modifier.fillMaxWidth(),
@@ -126,7 +126,7 @@ fun ManageProduct(
                             .heightIn(50.dp, 300.dp),
                         value = viewModel.description,
                         onValueChange = { viewModel.description = it },
-                        label = { Text("Product Description") },
+                        label = { Text("Mô Tả Khách Sạn") },
                         placeholder = { },
                         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
                     )
@@ -135,7 +135,7 @@ fun ManageProduct(
                         modifier = Modifier.fillMaxWidth(),
                         value = viewModel.stock,
                         onValueChange = { viewModel.stock = it },
-                        label = { Text("Product Stock") },
+                        label = { Text("Số Phòng Đang Còn") },
                         singleLine = true,
                         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
                     )
@@ -146,7 +146,7 @@ fun ManageProduct(
                             .heightIn(50.dp, 300.dp),
                         value = viewModel.imageUrl,
                         onValueChange = { viewModel.imageUrl = it },
-                        label = { Text("Product Image") },
+                        label = { Text("Ảnh Khách Sạn") },
                         placeholder = { },
                         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
                     )
@@ -154,7 +154,7 @@ fun ManageProduct(
                     if (viewModel.imageUrl !== "") {
                         Image(
                             painter = rememberAsyncImagePainter(viewModel.imageUrl),
-                            contentDescription = "Product Image",
+                            contentDescription = "Ảnh Khách Sạn",
                             modifier = Modifier.size(150.dp)
                         )
                     }
@@ -163,7 +163,7 @@ fun ManageProduct(
                         onClick = {
 
                             if (!validateInputs()) {
-                                if (actionType == "Edit") viewModel.updateProduct()
+                                if (actionType == "Sửa") viewModel.updateProduct()
                                 else viewModel.addProduct()
 
                                 productVM.getProducts()
@@ -171,8 +171,8 @@ fun ManageProduct(
                             }
                         }, Modifier.align(End)
                     ) {
-                        if (actionType == "Add") {
-                            btnText = "Add"
+                        if (actionType == "Thêm") {
+                            btnText = "Thêm"
                         }
                         Text(text = btnText)
                     }
@@ -192,9 +192,9 @@ fun CategoryDropDown(list: List<Category>, cid: String) {
             }
         }
     }
-    val categoryName = if (cid != "") list[index].name else "Not Selected"
+    val categoryName = if (cid != "") list[index].name else "Chưa Chọn"
     val options = list.map { it.name }
 
-    DropDownMenu(options = options, text = "Category", type = "category", categoryName)
+    DropDownMenu(options = options, text = "Khu Vực", type = "category", categoryName)
 }
 

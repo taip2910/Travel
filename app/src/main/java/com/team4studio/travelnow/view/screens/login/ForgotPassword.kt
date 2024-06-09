@@ -45,14 +45,14 @@ fun Forgot(
                     .padding(20.dp),
             ) {
                 Text(
-                    text = "Forgot Password", fontWeight = FontWeight.Bold, fontSize = 40.sp
+                    text = "Quên Mật Khẩu", fontWeight = FontWeight.Bold, fontSize = 40.sp
                 )
                 Text(
-                    text = "Please Enter your email address, a verification code will be sent to your email"
+                    text = "Vui lòng nhập địa chỉ email của bạn, mã xác minh sẽ được gửi đến email của bạn"
                 )
                 Spacer(modifier = Modifier.height(102.dp))
                 Text(
-                    text = "Email address"
+                    text = "Địa chỉ Email"
                 )
                 OutlinedTextField(value = viewModel.email,
                     onValueChange = { viewModel.email = it },
@@ -65,7 +65,7 @@ fun Forgot(
                         viewModel.generateVCode()
                         navController.navigate(Screen.VerifyPassword.route)
                     } else {
-                        Toast.makeText(context, "Invalid credentials!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Thông tin không hợp lệ!", Toast.LENGTH_SHORT).show()
                     }
                 }
 
@@ -82,7 +82,7 @@ fun Forgot(
 
                     ) {
                         Text(
-                            text = "Send verification code"
+                            text = "Gửi mã xác minh"
                         )
                     }
                 }

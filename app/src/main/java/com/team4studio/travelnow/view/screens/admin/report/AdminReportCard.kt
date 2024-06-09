@@ -37,12 +37,12 @@ fun AdminReportCard(order: Order, allProducts: List<Product>) {
 
         Column(Modifier.padding(10.dp)) {
             Text(
-                text = "Order# ${order.id}",
+                text = "Vé# ${order.id}",
 //                    text = "Order# ${if (order.id.isNotEmpty()) order.id.substring(0, 3) else ""}",
                 style = largeTitle
             )
             Text(
-                text = "Status ${order.status}",
+                text = "Trạng Thái ${order.status}",
 //                    text = "Order# ${if (order.id.isNotEmpty()) order.id.substring(0, 3) else ""}",
                 style = mediumTitle
             )
@@ -52,7 +52,7 @@ fun AdminReportCard(order: Order, allProducts: List<Product>) {
                     text = "${order.date}", style = smallTitle
                 )
                 Text(
-                    text = "Total $${order.total}", style = smallTitle
+                    text = "Tổng $${order.total}", style = smallTitle
                 )
             }
             Divider(color=MaterialTheme.colorScheme.inversePrimary)
@@ -62,8 +62,8 @@ fun AdminReportCard(order: Order, allProducts: List<Product>) {
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Text(text = "Product xQuantity", style = smallCaption)
-                Text(text = "Price", style = smallCaption)
+                Text(text = "Sản phẩm xSố lượng", style = smallCaption)
+                Text(text = "Giá", style = smallCaption)
             }
             Spacer(modifier = Modifier.height(10.dp))
 

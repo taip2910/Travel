@@ -41,7 +41,7 @@ fun AdminReportFilter(
     val startDate = remember { mutableStateOf("N/A") }
     val endDate = remember { mutableStateOf(currentDateFormatted) }
     Scaffold(topBar = {
-        TopBar("Filter Report", { navController.popBackStack() }, actions = {
+        TopBar("Lọc Báo Cáo", { navController.popBackStack() }, actions = {
             TextButton(onClick = {
 
                 if (startDate.value != "N/A" && LocalDate.parse(endDate.value, formatter)
@@ -59,7 +59,7 @@ fun AdminReportFilter(
                     navController.popBackStack()
                 }
             }) {
-                Text(text = "Apply")
+                Text(text = "Áp dụng")
             }
         })
     }, content = { padding ->
@@ -70,15 +70,15 @@ fun AdminReportFilter(
         ) {
             val context = LocalContext.current
             if (error) {
-                Toast.makeText(context, "End date cannot be after Start date.", Toast.LENGTH_SHORT)
+                Toast.makeText(context, "Ngày kết thúc không được sau ngày bắt đầu.", Toast.LENGTH_SHORT)
                     .show()
                 error = false
             }
             val focusManager = LocalFocusManager.current
 
-            Text(text = "Status", fontSize = 22.sp, fontWeight = FontWeight.Bold)
+            Text(text = "Trạng Thái", fontSize = 22.sp, fontWeight = FontWeight.Bold)
             StatusRadioButton()
-            Text(text = "Start Date", fontSize = 22.sp, fontWeight = FontWeight.Bold)
+            Text(text = "Ngày Bắt Đầu", fontSize = 22.sp, fontWeight = FontWeight.Bold)
             //Date Picker
             val calendar = Calendar.getInstance()
             calendar.add(Calendar.DAY_OF_MONTH, -1)
@@ -95,12 +95,12 @@ fun AdminReportFilter(
                     dateDialog.show()
                 },
                 onValueChange = {},
-                label = { Text("start date") },
+                label = { Text("ngày bắt đầu") },
                 singleLine = true,
                 enabled = false,
             )
 
-            Text(text = "End Date", fontSize = 22.sp, fontWeight = FontWeight.Bold)
+            Text(text = "Ngày Kết Thúc", fontSize = 22.sp, fontWeight = FontWeight.Bold)
             //Date Picker
             val calendar2 = Calendar.getInstance()
             val dateDialog2 = DatePickerDialog(
@@ -115,7 +115,7 @@ fun AdminReportFilter(
                     dateDialog2.show()
                 },
                 onValueChange = {},
-                label = { Text("end date") },
+                label = { Text("ngày kết thúc") },
                 singleLine = true,
                 enabled = false,
             )

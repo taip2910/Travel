@@ -52,7 +52,7 @@ fun OrderDetails(
     val orderItemsWithProduct = orderDetailsViewModel.orderItemProducts
     orderViewModel.orderStatus.value = order.status
     val textModifier = Modifier
-    Scaffold(topBar = { TopBar("Order Details", { navController.popBackStack() }) },
+    Scaffold(topBar = { TopBar("Chi Tiết Vé", { navController.popBackStack() }) },
         content = { padding ->
             Column(
                 Modifier
@@ -70,28 +70,28 @@ fun OrderDetails(
                             Modifier.fillMaxWidth(),
                             horizontalArrangement = Arrangement.SpaceBetween,
                         ) {
-                            Text(text = "Status", textModifier, style = smallCaption)
+                            Text(text = "Trạng Thái", textModifier, style = smallCaption)
                             Text(text = order.status, textModifier, style = smallTitle)
                         }
                     Row(
                         Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.SpaceBetween,
                     ) {
-                        Text(text = "Date Ordered ", textModifier, style = smallCaption)
+                        Text(text = "Ngày Đặt ", textModifier, style = smallCaption)
                         Text(text = order.date, textModifier, style = smallTitle)
                     }
                     Row(
                         Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.SpaceBetween,
                     ) {
-                        Text(text = "Number of Items ", textModifier, style = smallCaption)
+                        Text(text = "Số Vé ", textModifier, style = smallCaption)
                         Text(text = "${order.items.size}", textModifier, style = smallTitle)
                     }
                     Row(
                         Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.SpaceBetween,
                     ) {
-                        Text(text = "Total ", textModifier, style = smallCaption)
+                        Text(text = "Tổng ", textModifier, style = smallCaption)
                         Text(text = "$${order.total}", textModifier, style = smallTitle)
                     }
                 }
@@ -102,13 +102,13 @@ fun OrderDetails(
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
 
-                        Text(text = "Order Status", style = largeTitle)
+                        Text(text = "Trạng Thái Vé", style = largeTitle)
                         Spacer(modifier = Modifier.height(5.dp))
                         DropDownMenu(
                             options = reportVM.radioOptions.subList(
                                 1,
                                 reportVM.radioOptions.size
-                            ), text = "Status", type = "orders", order.status
+                            ), text = "Trạng Thái", type = "orders", order.status
                         )
                         if (orderViewModel.isOrderUpdated.value) {
                             orderViewModel.updateStatus(order, orderViewModel.orderStatus.value)
@@ -116,7 +116,7 @@ fun OrderDetails(
                             val context = LocalContext.current
                             Toast.makeText(
                                 context,
-                                "Order status is updated to ${orderViewModel.orderStatus.value}",
+                                "Trạng thái vé đã được cập nhật thành ${orderViewModel.orderStatus.value}",
                                 Toast.LENGTH_SHORT
                             )
                                 .show()
@@ -205,8 +205,8 @@ fun ItemCard(
                         )
                     }
 
-                    item.orderItem?.let { Text(text = "Quantity:  ${it.quantity}") }
-                    item.orderItem?.let { Text(text = "Price:        $${item.orderItem.price}") }
+                    item.orderItem?.let { Text(text = "Số Lượng:  ${it.quantity}") }
+                    item.orderItem?.let { Text(text = "Giá:        $${item.orderItem.price}") }
 
                     if (order.status.lowercase() == "delivered" && order.uid == currentUserId) {
                         Text(text = "REVIEW",

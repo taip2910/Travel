@@ -56,30 +56,30 @@ fun ResetPassword(
         ) {
 
             Text(
-                text = "Reset Password",
+                text = "Đổi Mật Khẩu",
                 fontWeight = FontWeight.Bold,
                 fontSize = 40.sp
             )
             Text(
-                text = "Please Enter your new Password"
+                text = "Nhập Mật Khẩu Mới"
             )
             Spacer(modifier = Modifier.height(102.dp))
             Text(
-                text = "Enter new Password"
+                text = "Nhập Mật Khẩu Mới"
             )
             OutlinedTextField(
                 value = viewModel.password,
                 onValueChange = { viewModel.password = it },
-                label = { Text(text = "Password") },
+                label = { Text(text = "Mật Khẩu") },
                 modifier = Modifier.fillMaxWidth()
             )
             Text(
-                text = "Re-Enter new Password"
+                text = "Nhập Lại Mật Khẩu Mới"
             )
             OutlinedTextField(
                 value = viewModel.rePassword,
                 onValueChange = { viewModel.rePassword = it },
-                label = { Text(text = "Password") },
+                label = { Text(text = "Mật Khẩu") },
                 modifier = Modifier.fillMaxWidth()
             )
             fun resetPassword() {
@@ -88,11 +88,11 @@ fun ResetPassword(
                     navController.navigate(Screen.Login.route)
                     else
                         Toast
-                            .makeText(context, "Something went wrong", Toast.LENGTH_SHORT)
+                            .makeText(context, "Đã xảy ra lỗi", Toast.LENGTH_SHORT)
                             .show()
                 }else{
                     Toast
-                        .makeText(context, "Passwords don't match!", Toast.LENGTH_SHORT)
+                        .makeText(context, "Mật khẩu không khớp!", Toast.LENGTH_SHORT)
                         .show()
                 }
 
@@ -111,7 +111,7 @@ fun ResetPassword(
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Text(
-                        text = "Reset Password",
+                        text = "Đổi Mật Khẩu",
                     )
                 }
             }

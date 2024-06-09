@@ -109,7 +109,7 @@ fun Login(
                 if (viewModel.passwordError) viewModel.passwordError = false
                 viewModel.password = it
             },
-            label = { Text("Password") },
+            label = { Text("Mật khẩu") },
             singleLine = true,
             visualTransformation = if (viewModel.passwordVisible) VisualTransformation.None else PasswordVisualTransformation(),
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
@@ -122,7 +122,7 @@ fun Login(
                 val image =
                     if (viewModel.passwordVisible) Icons.Filled.Visibility else Icons.Filled.VisibilityOff
                 val description =
-                    if (viewModel.passwordVisible) "Hide password" else "Show password"
+                    if (viewModel.passwordVisible) "Ẩn mật khẩu" else "Hiện mật khẩu"
                 IconButton(onClick = { viewModel.passwordVisible = !viewModel.passwordVisible }) {
                     Icon(imageVector = image, description)
                 }
@@ -131,7 +131,7 @@ fun Login(
         Row(
             Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End
         ) {
-            Text("Forgot Password?",
+            Text("Quên Mật Khẩu?",
                 Modifier
                     .padding(top = 10.toAdaptiveDp())
                     .clickable() { onForgotClick() })
@@ -140,7 +140,7 @@ fun Login(
             onClick = { handleLogin() }, Modifier.padding(top = 20.toAdaptiveDp())
         ) {
             Text(
-                text = "Log In",
+                text = "Đăng Nhập",
                 Modifier.padding(start = 20.toAdaptiveDp(), end = 20.toAdaptiveDp()),
                 fontSize = 18.sp
             )
@@ -155,7 +155,7 @@ fun Login(
 
 
             Text(
-                text = "New user? Register Here",
+                text = "Đăng Ký",
                 Modifier
                     .padding(top = 10.toAdaptiveDp(), bottom = 15.toAdaptiveDp())
                     .clickable() { onRegisterClick() },

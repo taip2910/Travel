@@ -38,7 +38,7 @@ fun Address(
 ) {
     addressViewModel.setUser(appViewModel.getCurrentUserId())
 
-    Scaffold(topBar = { TopBar("$screenMode Address", { navController.popBackStack() }) },
+    Scaffold(topBar = { TopBar("$screenMode Thông Tin", { navController.popBackStack() }) },
         content = { padding ->
             Column(
                 Modifier
@@ -70,7 +70,7 @@ fun Address(
                     Button(onClick = {
                         navController.navigate("${Screen.ManageAddress.route}/$screenMode/-1")
                     }) {
-                        Text("Add Address")
+                        Text("Thêm Thông Tin")
                     }
                 }
             }
@@ -115,9 +115,9 @@ fun AddressCard(
 
             Column(Modifier.padding(5.dp)) {
                 Text(address.name)
-                Text("Unit ${address.unit}, Building ${address.building}")
-                Text("Street ${address.street}, Zone ${address.zone}")
-                Text("PO Box: ${address.poBox}")
+                Text("Tên ${address.unit}, Tòa Nhà ${address.building}")
+                Text("Đường ${address.street}, Zalo ${address.zone}")
+                Text("Hộp Thư: ${address.poBox}")
                 Text(address.phone)
             }
 
@@ -125,7 +125,7 @@ fun AddressCard(
                 Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End
             ) {
                 Image(painter = painterResource(id = R.drawable.edit),
-                    contentDescription = "Edit Address",
+                    contentDescription = "Sửa Thông Tin",
                     Modifier
                         .size(25.dp)
                         .padding(end = 5.dp)
@@ -133,7 +133,7 @@ fun AddressCard(
                             navController.navigate("${Screen.ManageAddress.route}/$mode/${address.id}")
                         })
                 Image(painter = painterResource(id = R.drawable.trash),
-                    contentDescription = "Delete Address",
+                    contentDescription = "Xóa Thông Tin",
                     Modifier
                         .size(25.dp)
                         .padding(end = 5.dp)
@@ -142,21 +142,21 @@ fun AddressCard(
 
             if (openRemoveAddressDialog.value) {
                 AlertDialog(onDismissRequest = { openRemoveAddressDialog.value = false }, title = {
-                    Text(text = "Remove address")
+                    Text(text = "Xóa Thông Tin")
                 }, text = {
-                    Text("Would you like to remove this address from your account?")
+                    Text("Bạn có muốn xóa thông tin này không?")
                 }, confirmButton = {
                     Button(onClick = {
                         openRemoveAddressDialog.value = false
                         addressViewModel.deleteAddress(address)
                     }) {
-                        Text("Yes")
+                        Text("Có")
                     }
                 }, dismissButton = {
                     Button(onClick = {
                         openRemoveAddressDialog.value = false
                     }) {
-                        Text("Cancel")
+                        Text("Hủy")
                     }
                 })
             }

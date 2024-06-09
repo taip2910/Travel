@@ -36,7 +36,7 @@ fun Profile(
     val profileMenuItemFontSize = 20.sp
     val currentUser: User? = appViewModel.getCurrentUser()
 
-    Scaffold(topBar = { TopBar("My Profile") }, content = { padding ->
+    Scaffold(topBar = { TopBar("Thông Tin Của Tôi") }, content = { padding ->
         Column(
             Modifier
                 .padding(padding)
@@ -68,7 +68,7 @@ fun Profile(
             }
             Divider()
             Text(
-                "My Orders",
+                "Vé Của Tôi",
                 Modifier
                     .fillMaxWidth()
                     .clickable {
@@ -76,7 +76,7 @@ fun Profile(
                     }, fontSize = profileMenuItemFontSize
             )
             Text(
-                "My Addresses",
+                "Thông Tin Của Tôi",
                 Modifier
                     .fillMaxWidth()
                     .clickable {
@@ -88,7 +88,7 @@ fun Profile(
             ) {
                 Column(verticalArrangement = Arrangement.spacedBy(15.dp)) {
                     Text(
-                        "Logout",
+                        "Đăng Xuất",
                         Modifier
                             .fillMaxWidth()
                             .clickable {

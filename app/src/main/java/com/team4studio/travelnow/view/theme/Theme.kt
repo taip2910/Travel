@@ -32,18 +32,18 @@ private val LightColorScheme = lightColorScheme(
     background = Color.White, //pages
     surface = Color.White, //surface login mobile
 
-    onPrimary = Color(219, 229, 250), //anything (e.g Text) on a component that uses primary color
+    onPrimary = Color(0, 0, 0, 255), //anything (e.g Text) on a component that uses primary color
     onSecondary = Color(0xFF000000), // 242B3B
     onTertiary = Color(0xFFE91E63),
     onSurfaceVariant = Color(0xFF000000), //text in cards that do not use the defailt color
 
     onBackground = Color(0xFF1C1B1F),
     //onSurface = Color(0xFF2900A5),
-    secondaryContainer = Color(0xFFB1C7FF), //top bar and selected bottom bar and filter chips background
+    secondaryContainer = Color(0xFFFFBCF00), //top bar and selected bottom bar and filter chips background
     onPrimaryContainer = Color(0xFF000000), //
-    primaryContainer = Color(0xFFadc7ff),
+    primaryContainer = Color(0xFFFFBCF00),
     onSecondaryContainer = Color(0xFF000000),
-    surfaceVariant = Color(0xFFB1C7FF) // card color
+    surfaceVariant = Color(0xFFFFBCF00) // card color
 
 
     /* Other default colors to override

@@ -61,7 +61,7 @@ fun Dashboard(
     totalSales: Double,
     products: List<Product>
 ) {
-    Scaffold(topBar = { TopBar("Dashboard") }, content = { padding ->
+    Scaffold(topBar = { TopBar("Bảng Điều Khiển") }, content = { padding ->
         Column(
             modifier = Modifier.padding(padding),
             verticalArrangement = Arrangement.Center,
@@ -75,17 +75,17 @@ fun Dashboard(
                 horizontalArrangement = Arrangement.SpaceEvenly,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                StatsCard(Icons.Filled.ListAlt, "Total Orders", "$totalOrders") {
+                StatsCard(Icons.Filled.ListAlt, "Tổng Số Đơn Đặt Khách Sạn", "$totalOrders") {
                     navController.navigate(
-                        "detailsPage/orders/total orders"
+                        "detailsPage/orders/Tổng đơn đặt khách sạn"
                     )
                 }
-                StatsCard(Icons.Filled.Payments, "Total Sales", "$${round(totalSales)}") {
+                StatsCard(Icons.Filled.Payments, "Tổng Doanh Thu", "$${round(totalSales)}") {
                     navController.navigate(
-                        "detailsPage/sales/Total sales"
+                        "detailsPage/sales/Tổng doanh thu"
                     )
                 }
-                StatsCard(Icons.Filled.Store, "Total Products", "${products.size}") {
+                StatsCard(Icons.Filled.Store, "Tổng Số Khánh Sạn", "${products.size}") {
                     navController.navigate(
                         Screen.AdminProductList.route
                     )
@@ -94,7 +94,7 @@ fun Dashboard(
             Divider()
 
             Text(
-                text = "Latest Orders",
+                text = "Sắp Xếp",
                 modifier = Modifier
                     .padding(5.dp)
                     .fillMaxWidth()

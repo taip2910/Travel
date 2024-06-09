@@ -118,7 +118,7 @@ fun NavigationGraph(navController: NavHostController) {
         composable(
             route = Screen.AdminProductList.route,
         ) {
-            ProductList(navController, "Manage List", "", "Admin", cid = "-1", 0)
+            ProductList(navController, "Danh Sách Quản Lý", "", "Admin", cid = "-1", 0)
         }
 
         composable(

@@ -101,7 +101,7 @@ fun ProductList(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             val addedCartToast =
-                Toast.makeText(LocalContext.current, "Added to Cart", Toast.LENGTH_SHORT)
+                Toast.makeText(LocalContext.current, "Thêm Vào Vé", Toast.LENGTH_SHORT)
 
             if (products?.isEmpty() == true) {
                 var navRoute = "FilterProducts/${if (cid == "") "-1" else cid}/$title"
@@ -112,7 +112,7 @@ fun ProductList(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     modifier = Modifier.fillMaxSize()
                 ) {
-                    Text("No search results found!", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+                    Text("Không tìm thấy kết quả tìm kiếm!", fontSize = 20.sp, fontWeight = FontWeight.Bold)
                     Button(onClick = { navController.navigate(navRoute) }) { //go home.
                         Text("Try again")
                     }

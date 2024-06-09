@@ -62,8 +62,8 @@ fun Register(
         ) {
             val context = LocalContext.current
 
-            Text("Create Account", fontWeight = FontWeight.Bold, fontSize = 40.sp)
-            Text("Join us and start shopping now!", fontSize = 15.sp)
+            Text("Tạo Tài Khoản", fontWeight = FontWeight.Bold, fontSize = 40.sp)
+            Text("Hãy tham gia cùng chúng tôi và bắt đầu đặt phòng ngay bây giờ!", fontSize = 15.sp)
 
             OutlinedTextField(modifier = inputFieldModifier,
                 value = viewModel.firstName,
@@ -71,7 +71,7 @@ fun Register(
                     if (viewModel.fNameError) viewModel.fNameError = false
                     viewModel.firstName = it
                 },
-                label = { Text("First Name") },
+                label = { Text("Tên") },
                 singleLine = true,
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
                 keyboardActions = KeyboardActions(onDone = {
@@ -85,7 +85,7 @@ fun Register(
                     if (viewModel.lNameError) viewModel.lNameError = false
                     viewModel.lastName = it
                 },
-                label = { Text("Last Name") },
+                label = { Text("Họ") },
                 singleLine = true,
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
                 keyboardActions = KeyboardActions(onDone = {
@@ -114,7 +114,7 @@ fun Register(
                     if (viewModel.passwordError) viewModel.passwordError = false
                     viewModel.password = it
                 },
-                label = { Text("Password") },
+                label = { Text("Mật Khẩu") },
                 singleLine = true,
                 visualTransformation = if (viewModel.passwordVisible) VisualTransformation.None else PasswordVisualTransformation(),
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
@@ -124,7 +124,7 @@ fun Register(
                     val image =
                         if (viewModel.passwordVisible) Icons.Filled.Visibility else Icons.Filled.VisibilityOff
                     val description =
-                        if (viewModel.passwordVisible) "Hide password" else "Show password"
+                        if (viewModel.passwordVisible) "Ẩn Mật Khẩu" else "Hiện Mật Khẩu"
                     IconButton(onClick = {
                         viewModel.passwordVisible = !viewModel.passwordVisible
                     }) {
@@ -147,7 +147,7 @@ fun Register(
                     dateDialog.show()
                 },
                 onValueChange = {},
-                label = { Text("Birthdate") },
+                label = { Text("Ngày Sinh") },
                 singleLine = true,
                 enabled = false,
                 isError = viewModel.dobError
@@ -167,20 +167,20 @@ fun Register(
                     enabled = viewModel.termsIsChecked.value,
                     onClick = {
                         if (!viewModel.validateRegisterInput()) {
-                            Toast.makeText(context, "Invalid input!", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(context, "Không Hợp Lệ!", Toast.LENGTH_SHORT).show()
                         } else if (!viewModel.validateExistingAccount()) {
-                            Toast.makeText(context, "Account already exists!", Toast.LENGTH_SHORT)
+                            Toast.makeText(context, "Tài khoản đã tồn tại!", Toast.LENGTH_SHORT)
                                 .show()
                         } else {
                             viewModel.addUser()
                             openDialog.value = true
                         }
                     }) {
-                    Text("REGISTER", fontSize = 20.sp)
+                    Text("ĐĂNG KÝ", fontSize = 20.sp)
                 }
 
                 SuccessDialog(
-                    openDialog, "Account created", "Enjoy shopping with us!", "Login"
+                    openDialog, "Tạo Tài Khoản Thành Công", "Tận Hưởng Vui Vẻ!", "Đăng Nhập"
                 ) { navToLogin() }
             }
         }
@@ -199,7 +199,7 @@ fun TermsCheck(termsIsChecked: MutableState<Boolean>) {
                 .size(3.dp),
         )
         Spacer(modifier = Modifier.padding(5.dp))
-        Text("I Agree to the Terms of Service and Privacy Policy.",
+        Text("Tôi đồng ý với Điều khoản dịch vụ và Chính sách quyền riêng tư.",
             Modifier.clickable(indication = null,
                 interactionSource = remember { MutableInteractionSource() }) {
                 termsIsChecked.value = !termsIsChecked.value

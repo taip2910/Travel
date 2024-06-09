@@ -40,7 +40,7 @@ fun HomeTopBar(homeViewModel: HomeViewModel, navController: NavHostController) {
 
     when (searchBarState) {
         SearchBarState.CLOSED -> {
-            TopBar(title = "Home", actions = {
+            TopBar(title = "Trang chủ", actions = {
                 IconButton(onClick = { homeViewModel.updateSearchBarState(newValue = SearchBarState.OPENED) }) {
                     Icon(
                         imageVector = Icons.Filled.Search,
@@ -56,7 +56,7 @@ fun HomeTopBar(homeViewModel: HomeViewModel, navController: NavHostController) {
                 onCloseClicked = { homeViewModel.updateSearchBarState(newValue = SearchBarState.CLOSED) },
                 onSearchClicked = {
                     if (searchTextState == "") {
-                        Toast.makeText(context, "Invalid search query", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Truy vấn tìm kiếm không hợp lệ", Toast.LENGTH_SHORT).show()
                     } else {
                         homeVM.actionType = "search"
                         navController.navigate("ProductListSearch/$searchTextState")
@@ -91,7 +91,7 @@ fun SearchHomeTopBar(
             onValueChange = { onTextChange(it) },
             placeholder = {
                 Text(
-                    modifier = Modifier.alpha(0.7f), text = "Search....", color = Color.Black
+                    modifier = Modifier.alpha(0.7f), text = "Tìm Kiếm....", color = Color.Black
                 )
             },
             textStyle = TextStyle(

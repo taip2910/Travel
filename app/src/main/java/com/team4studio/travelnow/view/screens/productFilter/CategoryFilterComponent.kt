@@ -33,7 +33,7 @@ fun CategoryFilterComponent(filterVM: FilterViewModel = viewModel(
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
         Text(
-            text = "Categories",
+            text = "Category",
             textAlign = TextAlign.Left,
             fontWeight = FontWeight.Bold,
             fontSize = 20.sp,

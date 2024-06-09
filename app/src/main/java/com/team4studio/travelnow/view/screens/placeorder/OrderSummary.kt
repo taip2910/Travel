@@ -36,7 +36,7 @@ fun OrderSummary(
     placeOrderViewModel: PlaceOrderViewModel = viewModel(LocalContext.current as ComponentActivity),
     cartViewModel: CartViewModel = viewModel(LocalContext.current as ComponentActivity),
 ) {
-    Scaffold(topBar = { TopBar("Order Summary", { navController.popBackStack() }) },
+    Scaffold(topBar = { TopBar("Tóm Tắt", { navController.popBackStack() }) },
         content = { padding ->
             Column(
                 Modifier
@@ -50,7 +50,7 @@ fun OrderSummary(
                 Column(
                     Modifier.weight(5f, true)
                 ) {
-                    SummaryPageSubtitleText("ITEMS")
+                    SummaryPageSubtitleText("VÉ")
 
                     LazyColumn(
                         Modifier
@@ -74,14 +74,14 @@ fun OrderSummary(
 
                 // Selected Address
                 Column(Modifier.weight(2.5f)) {
-                    SummaryPageSubtitleText("DELIVERING TO")
+                    SummaryPageSubtitleText("XÁC NHẬN")
                     SummaryPageAddressDetails(placeOrderViewModel.selectedAddress)
                     SummaryPageDivider()
                 }
 
                 // Selected Payment
                 Column(Modifier.weight(1f)) {
-                    SummaryPageSubtitleText("PAYMENT METHOD")
+                    SummaryPageSubtitleText("PHƯƠNG THỨC THANH TOÁN")
                     Text(placeOrderViewModel.selectedPayment)
                     SummaryPageDivider()
                 }
@@ -98,11 +98,11 @@ fun OrderSummary(
                         placeOrderViewModel.placeOrder(userCart, totalPrice)
                         openDialog.value = true
                     }) {
-                        Text("Place Order")
+                        Text("Đặt Phòng")
                     }
 
                     SuccessDialog(
-                        openDialog, "Order Confirmed", "Thank you for shopping with us!", "Dismiss"
+                        openDialog, "Xác Nhận Đặt Phòng", "Cảm Ơn Bạn Đặt Phòng!", "Dismiss"
                     ) {
                         navController.navigate(Screen.Home.route) {
                             popUpTo(Screen.Home.route) { inclusive = true }
@@ -172,9 +172,9 @@ fun SummaryPageAddressDetails(address: Address) {
     Card(Modifier.fillMaxWidth()) {
         Column(Modifier.padding(10.dp)) {
             Text(address.name, fontWeight = FontWeight.Bold)
-            Text("Unit ${address.unit}, Building ${address.building}")
-            Text("Street ${address.street}, Zone ${address.zone}")
-            Text("PO Box: ${address.poBox}")
+            Text("Đơn vị ${address.unit}, Tòa nhà ${address.building}")
+            Text("Đường ${address.street}, Zalo ${address.zone}")
+            Text("Hộp thư: ${address.poBox}")
             Text(address.phone)
         }
     }

@@ -64,16 +64,16 @@ fun ManageReview(
         }, topBar = {
 
         var type = ""
-        reviewViewModel.returnReview()?.let { type = "Edit" } ?: run { type = "Add" }
+        reviewViewModel.returnReview()?.let { type = "Sứa" } ?: run { type = "Thêm" }
         TopBar(type, { navController.popBackStack() }, actions = {
-            if (type == "Edit") {
+            if (type == "Sửa") {
                 IconButton(onClick = {
                     reviewViewModel.openDialog = true
                 }) {
                     Row(Modifier.fillMaxWidth(0.5f)) {
                         Icon(
                             imageVector = Icons.Outlined.Delete,
-                            contentDescription = "Delete Review",
+                            contentDescription = "Xóa Đánh Giá",
                             tint = Color.Red
                         )
                     }
@@ -114,7 +114,7 @@ fun ManageReview(
             }
 
             Column() {
-                Text(text = "Review Title", fontSize = 14.sp)
+                Text(text = "Tiêu Đề Đánh Giá", fontSize = 14.sp)
                 OutlinedTextField(
                     modifier = inputFieldModifier,
                     value = reviewViewModel.reviewTitle,
@@ -122,7 +122,7 @@ fun ManageReview(
                         if (reviewViewModel.titleError) reviewViewModel.titleError = false
                         reviewViewModel.reviewTitle = it
                     },
-                    placeholder = { Text("Heading") },
+                    placeholder = { Text("Phần mở đầu") },
                     singleLine = true,
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
                     isError = reviewViewModel.titleError
@@ -130,7 +130,7 @@ fun ManageReview(
             }
 
             Column() {
-                Text(text = "Description", fontSize = 14.sp)
+                Text(text = "Phần mô tả", fontSize = 14.sp)
                 OutlinedTextField(
                     modifier = inputFieldModifier.fillMaxHeight(0.5f),
                     value = reviewViewModel.reviewDescription,
@@ -139,7 +139,7 @@ fun ManageReview(
                             false
                         reviewViewModel.reviewDescription = it
                     },
-                    placeholder = { Text("Details") },
+                    placeholder = { Text("Chi tiết") },
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
                     isError = reviewViewModel.descriptionError
                 )
@@ -153,14 +153,14 @@ fun ManageReview(
                     reviewViewModel.returnReview()?.let {
                         if (allowSubmit) {
                             reviewViewModel.updateReview()
-                            Toast.makeText(context, "Review Updated", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(context, "Đánh giá đã cập nhật", Toast.LENGTH_SHORT).show()
                             navController.popBackStack()
                         }
                     } ?: run {
 
                         if (allowSubmit) {
                             reviewViewModel.addReview()
-                            Toast.makeText(context, "Review Added", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(context, "Đã thêm đánh giá", Toast.LENGTH_SHORT).show()
                             navController.popBackStack()
                         }
                     }
@@ -169,11 +169,11 @@ fun ManageReview(
 
             if (reviewViewModel.openDialog) {
                 AlertDialog(onDismissRequest = { reviewViewModel.openDialog = false },
-                    title = { Text("Are you sure you want to delete?") },
+                    title = { Text("Bạn có chắc chắn muốn xóa đánh giá?") },
                     text = {
                         Column() {
                             Text(
-                                "This will delete your review of the product.",
+                                "Thao tác này không thể hoàn tác.",
                                 Modifier.padding(top = 10.dp)
                             )
                         }
@@ -182,10 +182,10 @@ fun ManageReview(
                         Button(modifier = Modifier.fillMaxWidth(), onClick = {
                             reviewViewModel.openDialog = false
                             reviewViewModel.deleteReview()
-                            Toast.makeText(context, "Review Deleted", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(context, "Đã xóa đánh giá.", Toast.LENGTH_SHORT).show()
                             navController.popBackStack()
                         }) {
-                            Text("Confirm")
+                            Text("Xác nhận")
                         }
                     },
                     dismissButton = {
@@ -193,7 +193,7 @@ fun ManageReview(
                             reviewViewModel.openDialog = false
 
                         }) {
-                            Text("Cancel")
+                            Text("Hủy")
                         }
                     })
             }
@@ -204,12 +204,12 @@ fun ManageReview(
 @Composable
 fun RatingBar(reviewViewModel: ReviewViewModel) {
     Column() {
-        Text(text = "Select rating: ", fontSize = 12.sp)
+        Text(text = "Chọn đánh giá: ", fontSize = 12.sp)
         Row() {
             for (i in 1..5) {
                 Icon(
                     imageVector = Icons.Filled.StarRate,
-                    contentDescription = "star",
+                    contentDescription = "sao",
                     modifier = Modifier
                         .requiredWidthIn(28.dp, 35.dp)
                         .height(32.dp)

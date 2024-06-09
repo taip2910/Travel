@@ -100,7 +100,7 @@ fun AdminReports(
 ) {
     Scaffold(
         topBar = {
-            TopBar("Reports", actions = {
+            TopBar("Báo Cáo", actions = {
                 IconButton(onClick = {
                     navController.navigate(Screen.FilterReport.route)
                 }) {
@@ -122,7 +122,7 @@ fun AdminReports(
 
                 Text(
 
-                    text = "${reportVM.totalProductsCount.value} Products",
+                    text = "${reportVM.totalProductsCount.value} Vé",
                     softWrap = true,
                     overflow = TextOverflow.Clip,
                     style = header
@@ -130,14 +130,14 @@ fun AdminReports(
                 Spacer(modifier = Modifier.height(8.dp))
                 Row() {
                     Text(
-                        text = "Start date: ${reportVM.startDate.value}",
+                        text = "Ngày bắt đầu: ${reportVM.startDate.value}",
                         softWrap = true,
                         overflow = TextOverflow.Clip,
                         style = smallTitle
                     )
                     Spacer(modifier = Modifier.width(10.dp))
                     Text(
-                        text = "End date: ${reportVM.endDate.value}",
+                        text = "Ngày kết thúc: ${reportVM.endDate.value}",
                         softWrap = true,
                         overflow = TextOverflow.Clip,
                         style = smallTitle
@@ -146,14 +146,14 @@ fun AdminReports(
                 Spacer(modifier = Modifier.height(8.dp))
                 Row() {
                     Text(
-                        text = "Total amount $${round(reportVM.totalSales)}",
+                        text = "Tổng cộng $${round(reportVM.totalSales)}",
                         softWrap = true,
                         overflow = TextOverflow.Clip,
                         style = smallTitle
                     )
                     Spacer(modifier = Modifier.width(10.dp))
                     Text(
-                        text = "Status: ${reportVM.finalOrderStatusValue.value}",
+                        text = "Trạng thái: ${reportVM.finalOrderStatusValue.value}",
                         softWrap = true,
                         overflow = TextOverflow.Clip,
                         style = smallTitle
@@ -163,44 +163,44 @@ fun AdminReports(
 
                     Spacer(modifier = Modifier.height(12.dp))
 
-                    Text(text = "Processing", style = mediumTitle)
+                    Text(text = "Đang xử lý", style = mediumTitle)
                     Row(
                         Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween
                     ) {
                         Text(
-                            text = "${reportVM.totalProductsByStatus[0].count} products",
+                            text = "${reportVM.totalProductsByStatus[0].count} vé",
                             style = smallTitle
                         )
                         Text(
-                            text = "Amount $${round(reportVM.totalProductsByStatus[0].amount)}",
+                            text = "Số lượng $${round(reportVM.totalProductsByStatus[0].amount)}",
                             style = smallTitle
                         )
                     }
                     Spacer(modifier = Modifier.height(12.dp))
-                    Text(text = "Shipped", style = mediumTitle)
+                    Text(text = "Đang xác nhận", style = mediumTitle)
                     Row(
                         Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween
                     ) {
                         Text(
-                            text = "${reportVM.totalProductsByStatus[1].count} products",
+                            text = "${reportVM.totalProductsByStatus[1].count} vé",
                             style = smallTitle
                         )
                         Text(
-                            text = "Amount $${round(reportVM.totalProductsByStatus[1].amount)}",
+                            text = "Số lượng $${round(reportVM.totalProductsByStatus[1].amount)}",
                             style = smallTitle
                         )
                     }
                     Spacer(modifier = Modifier.height(12.dp))
-                    Text(text = "Delivered", style = mediumTitle)
+                    Text(text = "Đã xác nhận", style = mediumTitle)
                     Row(
                         Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween
                     ) {
                         Text(
-                            text = "${reportVM.totalProductsByStatus[2].count} products",
+                            text = "${reportVM.totalProductsByStatus[2].count} vé",
                             style = smallTitle
                         )
                         Text(
-                            text = "Amount $${round(reportVM.totalProductsByStatus[2].amount)}",
+                            text = "Số lượng $${round(reportVM.totalProductsByStatus[2].amount)}",
                             style = smallTitle
                         )
                     }
@@ -212,7 +212,7 @@ fun AdminReports(
                 if (reportVM.finalOrderStatusValue.value.lowercase() == "all") TextButton(onClick = {
                     isCollapsed = !isCollapsed
                 }) {
-                    Text(text = if (!isCollapsed) "Collapse" else "Click for more details.")
+                    Text(text = if (!isCollapsed) "Thu gọn" else "Bấm để xem chi tiết.")
                 }
 
                 Divider()

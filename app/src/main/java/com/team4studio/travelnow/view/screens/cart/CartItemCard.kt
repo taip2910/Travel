@@ -138,10 +138,10 @@ fun CartItemCard(
         AlertDialog(
             onDismissRequest = { openRemoveCartItemDialog.value = false },
             title = {
-                Text(text = "Remove item")
+                Text(text = "Xóa mục")
             },
             text = {
-                Text("Would you like to remove this item from your cart?")
+                Text("Bạn có muốn xóa vé này không?")
             },
             confirmButton = {
                 Button(
@@ -150,7 +150,7 @@ fun CartItemCard(
                         viewModel.deleteCartItem(cartItem.cart)
                     }
                 ) {
-                    Text("Yes")
+                    Text("Có")
                 }
             },
             dismissButton = {
@@ -158,7 +158,7 @@ fun CartItemCard(
                     onClick = {
                         openRemoveCartItemDialog.value = false
                     }) {
-                    Text("Cancel")
+                    Text("Hủy")
                 }
             }
         )

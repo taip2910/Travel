@@ -37,7 +37,7 @@ fun ShoppingCart(
         viewModel<AppViewModel>(LocalContext.current as ComponentActivity).getCurrentUser(),
     )
 
-    Scaffold(topBar = { TopBar("My Cart", { navController.popBackStack() }) },
+    Scaffold(topBar = { TopBar("Vé Của Tôi", { navController.popBackStack() }) },
         content = { padding ->
             Column(
                 Modifier
@@ -60,13 +60,13 @@ fun ShoppingCart(
                             contentDescription = "Empty cart image",
                             Modifier.size(250.dp)
                         )
-                        Text("Your cart is empty", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+                        Text("Chưa đặt vé", fontSize = 20.sp, fontWeight = FontWeight.Bold)
                         Text(
-                            "You haven't added any items to your cart.",
+                            "Bạn chưa đặt vé nào cả?",
                             Modifier.padding(bottom = 10.dp)
                         )
                         Button(onClick = { navController.navigate(Screen.Home.route) }) {
-                            Text("Browse")
+                            Text("Duyệt")
                         }
                     }
                 } else {
@@ -74,7 +74,7 @@ fun ShoppingCart(
                         items(items = userCart, key = { userCart -> userCart.cart.id }) {
                             CartItemCard(
                                 it, viewModel
-                            ) { navController.navigate("product/${it.product.id}") }
+                            ) { navController.navigate("Phòng/${it.product.id}") }
                         }
                     }
 
@@ -90,14 +90,14 @@ fun ShoppingCart(
                                 .padding(top = 10.dp),
                             horizontalArrangement = Arrangement.SpaceBetween
                         ) {
-                            Text("Total:", fontSize = 16.sp)
+                            Text("Tổng:", fontSize = 16.sp)
                             Text("$$totalPrice", fontWeight = FontWeight.Bold, fontSize = 16.sp)
                         }
                         Row(
                             Modifier.fillMaxWidth(),
                             horizontalArrangement = Arrangement.SpaceBetween
                         ) {
-                            Text("Discount:", fontSize = 16.sp)
+                            Text("Giảm Giá:", fontSize = 16.sp)
                             Text(
                                 "${viewModel.discount}%",
                                 fontWeight = FontWeight.Bold,
@@ -110,7 +110,7 @@ fun ShoppingCart(
                                 .padding(bottom = 10.dp),
                             horizontalArrangement = Arrangement.SpaceBetween
                         ) {
-                            Text("Grand Total:", fontSize = 16.sp)
+                            Text("Tổng Cộng:", fontSize = 16.sp)
                             Text(
                                 "$${viewModel.grandTotal.value}",
                                 fontWeight = FontWeight.Bold,
@@ -122,7 +122,7 @@ fun ShoppingCart(
                             onClick = { navController.navigate(Screen.SelectAddress.route) },
                             Modifier.fillMaxWidth(),
                         ) {
-                            Text(text = "CHECKOUT", fontSize = 18.sp)
+                            Text(text = "THANH TOÁN", fontSize = 18.sp)
                         }
                     }
                 }

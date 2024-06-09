@@ -47,10 +47,10 @@ fun ManageAddress(
 
     var manageType = ""
     if (addressId == "-1") {
-        manageType = "Add"
+        manageType = "Thêm"
         viewModel.resetFields()
     } else {
-        manageType = "Edit"
+        manageType = "Sửa"
         viewModel.setCurrentAddress(addressId)
     }
 
@@ -63,7 +63,7 @@ fun ManageAddress(
             focusManager.clearFocus()
         },
 
-        topBar = { TopBar("$manageType Address", { navController.popBackStack() }) },
+        topBar = { TopBar("$manageType Thông Tin", { navController.popBackStack() }) },
         content = { padding ->
             Column(
                 Modifier
@@ -81,7 +81,7 @@ fun ManageAddress(
                         if (viewModel.nameError) viewModel.nameError = false
                         viewModel.contactName = it
                     },
-                    label = { Text("Full Name") },
+                    label = { Text("Tên") },
                     singleLine = true,
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
                     isError = viewModel.nameError
@@ -94,7 +94,7 @@ fun ManageAddress(
                         if (viewModel.unitError) viewModel.unitError = false
                         viewModel.unit = it
                     },
-                    label = { Text("Unit ") },
+                    label = { Text("CCCD ") },
                     singleLine = true,
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                     isError = viewModel.unitError
@@ -107,7 +107,7 @@ fun ManageAddress(
                         if (viewModel.buildingError) viewModel.buildingError = false
                         viewModel.building = it
                     },
-                    label = { Text("Building ") },
+                    label = { Text("Tòa Nhà ") },
                     singleLine = true,
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                     isError = viewModel.buildingError
@@ -120,7 +120,7 @@ fun ManageAddress(
                         if (viewModel.streetError) viewModel.streetError = false
                         viewModel.street = it
                     },
-                    label = { Text("Street ") },
+                    label = { Text("Đường ") },
                     singleLine = true,
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                     isError = viewModel.streetError
@@ -133,7 +133,7 @@ fun ManageAddress(
                         if (viewModel.zoneError) viewModel.zoneError = false
                         viewModel.zone = it
                     },
-                    label = { Text("Zone ") },
+                    label = { Text("Zalo ") },
                     singleLine = true,
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                     isError = viewModel.zoneError
@@ -146,7 +146,7 @@ fun ManageAddress(
                         if (viewModel.poBoxError) viewModel.poBoxError = false
                         viewModel.poBox = it
                     },
-                    label = { Text("PO Box") },
+                    label = { Text("Hộp Thư") },
                     singleLine = true,
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                     isError = viewModel.poBoxError

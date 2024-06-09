@@ -57,24 +57,24 @@ fun VerifyPassword(
         ) {
 
             Text(
-                text = "Verification",
+                text = "Xác Minh",
                 fontWeight = FontWeight.Bold,
                 fontSize = 40.sp
             )
             Text(
-                text = "Please Enter the verification code sent to your email"
+                text = "Vui lòng nhập mã xác minh được gửi tới email của bạn"
             )
             Spacer(modifier = Modifier.height(102.dp))
-            Text(text = "Generated Verification Code: ")
+            Text(text = "Mã xác minh đã tạo: ")
             Text(text = viewModel.getVCode().toString())
             Spacer(modifier = Modifier.height(10.dp))
             Text(
-                text = "Verification code"
+                text = "Mã xác nhận"
             )
             OutlinedTextField(
                 value = viewModel.vCode,
                 onValueChange = { viewModel.vCode = it },
-                label = { Text(text = "Verification code") },
+                label = { Text(text = "Mã xác nhận") },
                 modifier = Modifier.fillMaxWidth()
             )
 
@@ -83,7 +83,7 @@ fun VerifyPassword(
                     navController.navigate(Screen.ResetPassword.route)
                 }else{
                     Toast
-                        .makeText(context, "Invalid verification code", Toast.LENGTH_SHORT)
+                        .makeText(context, "Mã xác minh không hợp lệ", Toast.LENGTH_SHORT)
                         .show()
                 }
             }
@@ -100,7 +100,7 @@ fun VerifyPassword(
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Text(
-                        text = "Submit",
+                        text = "Gửi",
                     )
                 }
             }

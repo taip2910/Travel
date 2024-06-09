@@ -21,14 +21,14 @@ fun productTypes(type: String?, cid: String?): List<Product>? {
     Log.d("cid inside types", cid.toString())
     return if (cid == "-1") {
         when (type) {
-            "New Arrivals" -> newArrivals(filterVM)
+            "Mới" -> newArrivals(filterVM)
 
-            "Top Ranked" -> {
+            "Xếp Hạng Cao" -> {
                 filterVM.reviewRange = 1f..5f; filterVM.steps = 3;
                 topRanked(filterVM)
             }
 
-            "Trending" -> {
+            "Nổi Bật" -> {
                 filterVM.reviewRange = 3f..5f; filterVM.steps = 1;
                 trending(filterVM,  orderVM.getAllOrderItems())
             }

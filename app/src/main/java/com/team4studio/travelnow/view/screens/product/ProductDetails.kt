@@ -68,7 +68,7 @@ fun ProductDetails(
             if (reviewCount != 0) {
                 Row(Modifier.padding(bottom = 10.dp)) {
                     Text("⭐$avgRating", fontWeight = FontWeight.Bold)
-                    Text(" ($reviewCount ${if (reviewCount == 1) "Review" else "Reviews"})")
+                    Text(" ($reviewCount ${if (reviewCount == 1) "Đánh Giá" else "Reviews"})")
                 }
             }
 
@@ -101,7 +101,7 @@ fun ProductDetails(
                                 Row() {
                                     Icon(
                                         imageVector = Icons.Outlined.Add,
-                                        contentDescription = "Add Review",
+                                        contentDescription = "Thêm Đánh Giá",
                                         tint = Color.Blue
                                     )
                                 }
@@ -111,7 +111,7 @@ fun ProductDetails(
                 }
 
                 if (reviewCount != 0) items(items = reviews) { ReviewCard(it) }
-                else item() { Text("This product does not have any reviews yet.") }
+                else item() { Text("Sản phẩm này không có đánh giá nào.") }
             }
 
             val openDialog = remember { mutableStateOf(false) }
@@ -128,17 +128,17 @@ fun ProductDetails(
                         openDialog.value = true
                     }, Modifier.padding(top = 10.dp), enabled = product.value.stock != 0
                 ) {
-                    Text("ADD TO CART", fontSize = 15.sp, fontWeight = FontWeight.Bold)
+                    Text("THÊM VÀO VÉ", fontSize = 15.sp, fontWeight = FontWeight.Bold)
                 }
             }
 
             if (openDialog.value) {
                 AlertDialog(onDismissRequest = { openDialog.value = false },
-                    title = { Text("Added to Cart") },
+                    title = { Text("Đã Thêm ") },
                     text = {
                         Column() {
                             Text(
-                                "Product added to cart successfully.", Modifier.padding(top = 10.dp)
+                                "Đã Thêm Vào Vé.", Modifier.padding(top = 10.dp)
                             )
                         }
                     },
@@ -147,7 +147,7 @@ fun ProductDetails(
                             openDialog.value = false
                             navController.navigate(Screen.Cart.route)
                         }) {
-                            Text("Go to Cart")
+                            Text("Đi Đến Vé Của Tôi")
                         }
                     },
                     dismissButton = {
@@ -155,7 +155,7 @@ fun ProductDetails(
                             openDialog.value = false
                             navController.navigate(Screen.Home.route)
                         }) {
-                            Text("Continue Shopping")
+                            Text("Tiếp Tục Đặt Phòng")
                         }
                     })
             }
@@ -188,7 +188,7 @@ fun ReviewCard(review: Review) {
                 Row() {
                     Image(
                         painter = painterResource(id = R.drawable.profile),
-                        contentDescription = "Review user profile picture",
+                        contentDescription = "Xem lại ảnh hồ sơ người dùng",
                         Modifier
                             .size(25.dp)
                             .clip(RoundedCornerShape(15.dp))

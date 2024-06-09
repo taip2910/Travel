@@ -25,7 +25,7 @@ class ReportVM(val context: Application) : AndroidViewModel(context) {
     private val formatter: DateTimeFormatter = DateTimeFormatter.ofPattern("MM/dd/yyyy")
     private val currentDateFormatted: String = currentDate.format(formatter)
 
-    val radioOptions = listOf("All", "Processing", "Shipped", "Delivered")
+    val radioOptions = listOf("All", "Đang Xử Lý", "Đang Xác Nhận", "Đã Xác Nhận")
     val finalOrderStatusValue = mutableStateOf(radioOptions[0])
     val tempOrderStatusValue = mutableStateOf("All")
     val startDate = mutableStateOf("N/A")

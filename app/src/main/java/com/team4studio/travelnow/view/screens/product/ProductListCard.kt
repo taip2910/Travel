@@ -183,21 +183,21 @@ fun ProductListCard(
     }
     if (onProductDeleteDialog.value) {
         AlertDialog(onDismissRequest = { onProductDeleteDialog.value = false }, title = {
-            Text(text = "Remove Product")
+            Text(text = "Xóa Khách Sạn")
         }, text = {
-            Text("Would you like to remove this product?")
+            Text("Bạn Có Muốn Xóa Khách Sạn Này?")
         }, confirmButton = {
             Button(onClick = {
                 onProductDeleteDialog.value = false
                 productVM.deleteProduct(product.id)
             }) {
-                Text("Yes")
+                Text("Có")
             }
         }, dismissButton = {
             Button(onClick = {
                 onProductDeleteDialog.value = false
             }) {
-                Text("Cancel")
+                Text("Hủy")
             }
         })
     }
