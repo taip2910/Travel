@@ -28,12 +28,10 @@ fun ProductCard(rating: Double, product: Product, navToProduct: () -> Unit) {
             .height(250.dp)
             .requiredWidthIn(100.dp, 150.dp),
         onClick = { navToProduct() },
-        //colors = CardDefaults.cardColors(Color.Gray)
     ) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                //.background(Color.White)
                 .padding(5.dp),
             verticalArrangement = Arrangement.SpaceAround,
             horizontalAlignment = Alignment.CenterHorizontally
@@ -58,8 +56,6 @@ fun ProductCard(rating: Double, product: Product, navToProduct: () -> Unit) {
                 ) {
                     Text(
                         "$${product.price}",
-//                        fontSize = 18.sp,
-//                        fontWeight = FontWeight.Bold,
                         style = mediumTitle,
                         maxLines = 2,
                         overflow = TextOverflow.Clip
@@ -80,7 +76,6 @@ fun ProductCard(rating: Double, product: Product, navToProduct: () -> Unit) {
                 }
 
                 Spacer(modifier = Modifier.height(5.dp))
-
                 Text(
                     product.title,
                     style = mediumCaption,

@@ -128,17 +128,17 @@ fun ProductDetails(
                         openDialog.value = true
                     }, Modifier.padding(top = 10.dp), enabled = product.value.stock != 0
                 ) {
-                    Text("THÊM VÀO VÉ", fontSize = 15.sp, fontWeight = FontWeight.Bold)
+                    Text("Thêm vào vé", fontSize = 15.sp, fontWeight = FontWeight.Bold)
                 }
             }
 
             if (openDialog.value) {
                 AlertDialog(onDismissRequest = { openDialog.value = false },
-                    title = { Text("Đã Thêm ") },
+                    title = { Text("Đã thêm ") },
                     text = {
                         Column() {
                             Text(
-                                "Đã Thêm Vào Vé.", Modifier.padding(top = 10.dp)
+                                "Đã thêm vào vé.", Modifier.padding(top = 10.dp)
                             )
                         }
                     },

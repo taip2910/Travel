@@ -66,7 +66,7 @@ object OrderRepository {
             .toObjects(Order::class.java)
 
         for (order in userOrders) {
-            if (order.status == "Delivered") {
+            if (order.status == "Đã Xác Nhận") {
                 for (item in order.items) {
                     if (item.pid == productId) return true
                 }

@@ -10,6 +10,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.StarRate
 import androidx.compose.material.icons.outlined.Delete
+import androidx.compose.material.icons.outlined.Edit
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -64,7 +65,7 @@ fun ManageReview(
         }, topBar = {
 
         var type = ""
-        reviewViewModel.returnReview()?.let { type = "Sứa" } ?: run { type = "Thêm" }
+        reviewViewModel.returnReview()?.let { type = "Sửa" } ?: run { type = "Thêm" }
         TopBar(type, { navController.popBackStack() }, actions = {
             if (type == "Sửa") {
                 IconButton(onClick = {
@@ -72,8 +73,8 @@ fun ManageReview(
                 }) {
                     Row(Modifier.fillMaxWidth(0.5f)) {
                         Icon(
-                            imageVector = Icons.Outlined.Delete,
-                            contentDescription = "Xóa Đánh Giá",
+                            imageVector = Icons.Outlined.Edit,
+                            contentDescription = "Sửa Đánh Giá",
                             tint = Color.Red
                         )
                     }
@@ -87,7 +88,7 @@ fun ManageReview(
                 .padding(padding)
                 .padding(20.dp),
             verticalArrangement = Arrangement.spacedBy(20.dp),
-            ) {
+        ) {
             product?.let {
                 Row(modifier = Modifier.height(intrinsicSize = IntrinsicSize.Min)) {
                     Image(
@@ -148,7 +149,7 @@ fun ManageReview(
             Button(modifier = Modifier
                 .align(Alignment.End)
                 .padding(top = 50.dp), onClick = {}) {
-                Text(text = "Submit", fontSize = 20.sp, modifier = Modifier.clickable {
+                Text(text = "Cập nhật ", fontSize = 20.sp, modifier = Modifier.clickable {
                     val allowSubmit: Boolean = reviewViewModel.validateReviewInput()
                     reviewViewModel.returnReview()?.let {
                         if (allowSubmit) {
