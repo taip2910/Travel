@@ -23,7 +23,7 @@ fun productTypes(type: String?, cid: String?): List<Product>? {
         when (type) {
             "Mới" -> newArrivals(filterVM)
 
-            "Xếp Hạng Cao" -> {
+            "Xếp Hạng" -> {
                 filterVM.reviewRange = 1f..5f; filterVM.steps = 3;
                 topRanked(filterVM)
             }
@@ -32,7 +32,6 @@ fun productTypes(type: String?, cid: String?): List<Product>? {
                 filterVM.reviewRange = 3f..5f; filterVM.steps = 1;
                 trending(filterVM,  orderVM.getAllOrderItems())
             }
-            //"Normal" -> allProducts(filterVM)
             else -> {
                 val allProducts = adminDashboardVM.getAllProducts()
                 searchedProducts(filterVM, products = allProducts, type.toString())
@@ -44,11 +43,6 @@ fun productTypes(type: String?, cid: String?): List<Product>? {
     }
 }
 
-//fun allProducts(fVM: FilterViewModel): List<Product>? {
-//
-//    return fVM.getNormalFilteredProducts(
-//    )
-//}
 
 fun newArrivals(fVM: FilterViewModel): List<Product> {
     return fVM.getNewArrivalProducts(
