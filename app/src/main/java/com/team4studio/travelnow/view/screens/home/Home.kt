@@ -53,9 +53,9 @@ fun Home(
                     TextButton(onClick = {
                         Log.d("cid value inside home", category.name)
                         filterVM.setCurrentIndex(category.cid.toString()); navController.navigate( //until cid gets fixed
-                        "ProductList/${category.name}/Category/${category.cid}/0"
+                        "productList/${category.name}/Category/${category.cid}/0"
                     )
-                        homeViewModel.actionType = "category"
+                        homeViewModel.actionType = "Category"
                     }) { Text(text = "${category.name}") }
                 }
             }

@@ -77,11 +77,11 @@ class ReportVM(val context: Application) : AndroidViewModel(context) {
         if (totalProductsByStatus.isEmpty()) {
             //initialize list
             val processingProductInfo = TotalProductInfo(0, 0.0)
-            val shippedProductInfo = TotalProductInfo(0, 0.0)
-            val deliveredProductInfo = TotalProductInfo(0, 0.0)
+            val checkingProductInfo = TotalProductInfo(0, 0.0)
+            val checkedProductInfo = TotalProductInfo(0, 0.0)
             totalProductsByStatus.add(processingProductInfo)
-            totalProductsByStatus.add(shippedProductInfo)
-            totalProductsByStatus.add(deliveredProductInfo)
+            totalProductsByStatus.add(checkingProductInfo)
+            totalProductsByStatus.add(checkedProductInfo)
         }
 
         when (order.status.lowercase()) {

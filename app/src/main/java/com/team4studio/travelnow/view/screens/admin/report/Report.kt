@@ -68,15 +68,15 @@ fun AdminReportsInit(navController: NavHostController) {
                 reportVM.getProductCountByStatus(order)
             }
             when (reportVM.finalOrderStatusValue.value.lowercase()) {
-                "processing" -> {
+                "Đang Xử Lý" -> {
                     reportVM.totalProductsCount.value = reportVM.totalProductsByStatus[0].count
                     reportVM.totalSales = reportVM.totalProductsByStatus[0].amount
                 }
-                "shipped" -> {
+                "Đang Xác Nhận" -> {
                     reportVM.totalProductsCount.value = reportVM.totalProductsByStatus[1].count
                     reportVM.totalSales = reportVM.totalProductsByStatus[1].amount
                 }
-                "delivered" -> {
+                "Đã Xác Nhận" -> {
                     reportVM.totalProductsCount.value = reportVM.totalProductsByStatus[2].count
                     reportVM.totalSales = reportVM.totalProductsByStatus[2].amount
                 }
