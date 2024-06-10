@@ -102,7 +102,7 @@ fun OrderSummary(
                     }
 
                     SuccessDialog(
-                        openDialog, "Xác Nhận Đặt Phòng", "Cảm Ơn Bạn Đặt Phòng!", "Dismiss"
+                        openDialog, "Xác Nhận Đặt Phòng", "Cảm Ơn Bạn Đặt Phòng!", "Ẩn"
                     ) {
                         navController.navigate(Screen.Home.route) {
                             popUpTo(Screen.Home.route) { inclusive = true }
