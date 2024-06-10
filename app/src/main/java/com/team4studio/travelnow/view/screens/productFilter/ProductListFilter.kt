@@ -68,11 +68,8 @@ fun ProductListFilter(
     )
     Log.d("type", "$productType")
     Log.d("cid", category_id)
-//    var navRoute = remember {
-//        "ProductList/${productType}/$productType/$category_id/1"
-//    }
     var navRoute = remember {
-        "ProductListSearch/a"
+        "productList/${productType}/$productType/$category_id/1"
     }
 
     val result: List<Product>? = productTypes(type = productType, cid = category_id)
@@ -88,10 +85,11 @@ fun ProductListFilter(
         Scaffold(topBar = {
             TopBar("Filter $productType", { navController.popBackStack() }) {
                 TextButton(onClick = {
-                   // if (category_id == "-1" && categoryList.contains(Category(name = productType!!))) {
-                        //
-                        navRoute = "ProductListSearch/${filterVM.nameLocation}"
-                    //}
+                    if (category_id == "-1" && categoryList.contains(Category(name = productType!!))) {
+                        navRoute = "ProductList/All products/All products/$category_id/1"
+                    }
+                    else navRoute = "ProductListSearch/${filterVM.nameLocation}"
+
                     navController.navigate(navRoute) {
                         popUpTo("home")
 

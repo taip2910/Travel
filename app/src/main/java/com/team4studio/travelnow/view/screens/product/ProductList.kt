@@ -59,7 +59,6 @@ fun ProductList(
                 products = homeViewModel.getProductsByHighlights(title ?: "")
             }
             "Category" -> {
-                navRoute.value = "FilterProducts/$cid/$title"
                 products = homeViewModel.getCategoryProducts(cid!!)
             }
             "Admin" -> {
