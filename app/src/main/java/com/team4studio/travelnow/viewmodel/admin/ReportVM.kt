@@ -84,7 +84,7 @@ class ReportVM(val context: Application) : AndroidViewModel(context) {
             totalProductsByStatus.add(deliveredProductInfo)
         }
 
-        when (order.status.lowercase()) {
+        when (order.status) {
             "Đang Xử Lý" -> {
                 totalProductsByStatus[0].count += order.items.size
                 totalProductsByStatus[0].amount += order.total

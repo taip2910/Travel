@@ -27,6 +27,7 @@ import com.team4studio.travelnow.view.screens.orders.OrderDetails
 import com.team4studio.travelnow.view.screens.orders.TrackOrders
 import com.team4studio.travelnow.view.screens.placeorder.OrderSummary
 import com.team4studio.travelnow.view.screens.placeorder.SelectPayment
+import com.team4studio.travelnow.view.screens.product.DetailOrderProduct
 import com.team4studio.travelnow.view.screens.product.ProductDetails
 import com.team4studio.travelnow.view.screens.product.ProductList
 import com.team4studio.travelnow.view.screens.productFilter.ProductListFilterInit
@@ -222,6 +223,18 @@ fun NavigationGraph(navController: NavHostController) {
                 backStackEntry.arguments?.getString("id"),
                 backStackEntry.arguments?.getString("type"),
             )
+        }
+
+        composable(
+            route = "${Screen.DetailOrderProduct.route}/{id}",
+            arguments = listOf(navArgument("id") {
+                type = NavType.StringType
+            })
+        ){
+            val id = it.arguments?.getString("id")
+            if (id != null) {
+                DetailOrderProduct(navController, id)
+            }
         }
     }
 }

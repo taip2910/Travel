@@ -123,6 +123,10 @@ sealed class Screen(
         route = "detailsPage"
     )
 
+    object DetailOrderProduct : Screen(
+        route = "detailOrderProduct"
+    )
+
 
 
 
